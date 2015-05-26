@@ -1,0 +1,7 @@
+at91-sama5d3_xplained.o: arch/arm/boot/dts/at91-sama5d3_xplained.dts \
+ arch/arm/boot/dts/sama5d3.dtsi arch/arm/boot/dts/skeleton.dtsi \
+ /home/scott/linux-at91-master/arch/arm/boot/dts/include/dt-bindings/dma/at91.h \
+ /home/scott/linux-at91-master/arch/arm/boot/dts/include/dt-bindings/pinctrl/at91.h \
+ /home/scott/linux-at91-master/arch/arm/boot/dts/include/dt-bindings/interrupt-controller/irq.h \
+ /home/scott/linux-at91-master/arch/arm/boot/dts/include/dt-bindings/gpio/gpio.h \
+ arch/arm/boot/dts/at91-sama5d3_xplained_pin_sleep_state.dtsi

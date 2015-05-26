@@ -1,0 +1,1 @@
+cmd_drivers/usb/gadget/usb_f_obex.ko := /usr/bin/arm-linux-gnueabi-ld -EL -r  -T /home/scott/linux-at91-master/scripts/module-common.lds --build-id  -o drivers/usb/gadget/usb_f_obex.ko drivers/usb/gadget/usb_f_obex.o drivers/usb/gadget/usb_f_obex.mod.o

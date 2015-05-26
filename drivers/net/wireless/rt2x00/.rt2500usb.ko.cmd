@@ -1,0 +1,1 @@
+cmd_drivers/net/wireless/rt2x00/rt2500usb.ko := /usr/bin/arm-linux-gnueabi-ld -EL -r  -T /home/scott/linux-at91-master/scripts/module-common.lds --build-id  -o drivers/net/wireless/rt2x00/rt2500usb.ko drivers/net/wireless/rt2x00/rt2500usb.o drivers/net/wireless/rt2x00/rt2500usb.mod.o

@@ -1,0 +1,5 @@
+usb_a9263.o: arch/arm/boot/dts/usb_a9263.dts \
+ arch/arm/boot/dts/at91sam9263.dtsi arch/arm/boot/dts/skeleton.dtsi \
+ /home/scott/linux-at91-master/arch/arm/boot/dts/include/dt-bindings/pinctrl/at91.h \
+ /home/scott/linux-at91-master/arch/arm/boot/dts/include/dt-bindings/interrupt-controller/irq.h \
+ /home/scott/linux-at91-master/arch/arm/boot/dts/include/dt-bindings/gpio/gpio.h

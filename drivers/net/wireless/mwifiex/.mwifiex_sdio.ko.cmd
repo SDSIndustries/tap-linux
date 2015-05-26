@@ -1,0 +1,1 @@
+cmd_drivers/net/wireless/mwifiex/mwifiex_sdio.ko := /usr/bin/arm-linux-gnueabi-ld -EL -r  -T /home/scott/linux-at91-master/scripts/module-common.lds --build-id  -o drivers/net/wireless/mwifiex/mwifiex_sdio.ko drivers/net/wireless/mwifiex/mwifiex_sdio.o drivers/net/wireless/mwifiex/mwifiex_sdio.mod.o
