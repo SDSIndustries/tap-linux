@@ -1,0 +1,14 @@
+  CHK     include/generated/uapi/linux/version.h
+  CHK     include/generated/utsrelease.h
+make[1]: `include/generated/mach-types.h' is up to date.
+  CALL    scripts/checksyscalls.sh
+  CC      scripts/mod/devicetable-offsets.s
+  GEN     scripts/mod/devicetable-offsets.h
+  HOSTCC  scripts/mod/file2alias.o
+  HOSTLD  scripts/mod/modpost
+  CHK     include/generated/compile.h
+  Kernel: arch/arm/boot/Image is ready
+  Kernel: arch/arm/boot/zImage is ready
+make[1]: `dtbs' is up to date.
+  Building modules, stage 2.
+  MODPOST 26 modules

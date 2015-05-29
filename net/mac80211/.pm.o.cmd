@@ -1,4 +1,4 @@
-cmd_net/mac80211/pm.o := /usr/bin/arm-linux-gnueabi-gcc -Wp,-MD,net/mac80211/.pm.o.d  -nostdinc -isystem /usr/lib/gcc-cross/arm-linux-gnueabi/4.7/include -I/home/scott/linux-at91-master/arch/arm/include -Iarch/arm/include/generated  -Iinclude -I/home/scott/linux-at91-master/arch/arm/include/uapi -Iarch/arm/include/generated/uapi -I/home/scott/linux-at91-master/include/uapi -Iinclude/generated/uapi -include /home/scott/linux-at91-master/include/linux/kconfig.h -D__KERNEL__ -mlittle-endian -Iarch/arm/mach-at91/include -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -Werror-implicit-function-declaration -Wno-format-security -fno-delete-null-pointer-checks -O2 -fno-dwarf2-cfi-asm -mabi=aapcs-linux -mno-thumb-interwork -funwind-tables -marm -D__LINUX_ARM_ARCH__=7 -march=armv7-a -msoft-float -Uarm -Wframe-larger-than=1024 -fno-stack-protector -Wno-unused-but-set-variable -fomit-frame-pointer -Wdeclaration-after-statement -Wno-pointer-sign -fno-strict-overflow -fconserve-stack -DCC_HAVE_ASM_GOTO -D__CHECK_ENDIAN__ -DDEBUG    -D"KBUILD_STR(s)=\#s" -D"KBUILD_BASENAME=KBUILD_STR(pm)"  -D"KBUILD_MODNAME=KBUILD_STR(mac80211)" -c -o net/mac80211/pm.o net/mac80211/pm.c
+cmd_net/mac80211/pm.o := /usr/bin/arm-linux-gnueabi-gcc -Wp,-MD,net/mac80211/.pm.o.d  -nostdinc -isystem /usr/lib/gcc-cross/arm-linux-gnueabi/4.7/include -I/home/scott/controller/tap-linux/arch/arm/include -Iarch/arm/include/generated  -Iinclude -I/home/scott/controller/tap-linux/arch/arm/include/uapi -Iarch/arm/include/generated/uapi -I/home/scott/controller/tap-linux/include/uapi -Iinclude/generated/uapi -include /home/scott/controller/tap-linux/include/linux/kconfig.h -D__KERNEL__ -mlittle-endian -Iarch/arm/mach-at91/include -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -Werror-implicit-function-declaration -Wno-format-security -fno-delete-null-pointer-checks -O2 -fno-dwarf2-cfi-asm -mabi=aapcs-linux -mno-thumb-interwork -funwind-tables -marm -D__LINUX_ARM_ARCH__=7 -march=armv7-a -msoft-float -Uarm -Wframe-larger-than=1024 -fno-stack-protector -Wno-unused-but-set-variable -fomit-frame-pointer -Wdeclaration-after-statement -Wno-pointer-sign -fno-strict-overflow -fconserve-stack -DCC_HAVE_ASM_GOTO -D__CHECK_ENDIAN__ -DDEBUG    -D"KBUILD_STR(s)=\#s" -D"KBUILD_BASENAME=KBUILD_STR(pm)"  -D"KBUILD_MODNAME=KBUILD_STR(mac80211)" -c -o net/mac80211/pm.o net/mac80211/pm.c
 
 source_net/mac80211/pm.o := net/mac80211/pm.c
 
@@ -12,7 +12,7 @@ deps_net/mac80211/pm.o := \
     $(wildcard include/config/mac80211/leds.h) \
   include/linux/bug.h \
     $(wildcard include/config/generic/bug.h) \
-  /home/scott/linux-at91-master/arch/arm/include/asm/bug.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/bug.h \
     $(wildcard include/config/bug.h) \
     $(wildcard include/config/thumb2/kernel.h) \
     $(wildcard include/config/debug/bugverbose.h) \
@@ -36,7 +36,7 @@ deps_net/mac80211/pm.o := \
     $(wildcard include/config/modules.h) \
     $(wildcard include/config/modversions.h) \
     $(wildcard include/config/unused/symbols.h) \
-  /home/scott/linux-at91-master/arch/arm/include/asm/linkage.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/linkage.h \
   include/asm-generic/bug.h \
     $(wildcard include/config/generic/bug/relative/pointers.h) \
     $(wildcard include/config/smp.h) \
@@ -58,30 +58,30 @@ deps_net/mac80211/pm.o := \
     $(wildcard include/config/64bit.h) \
   include/uapi/linux/types.h \
   arch/arm/include/generated/asm/types.h \
-  /home/scott/linux-at91-master/include/uapi/asm-generic/types.h \
+  /home/scott/controller/tap-linux/include/uapi/asm-generic/types.h \
   include/asm-generic/int-ll64.h \
   include/uapi/asm-generic/int-ll64.h \
   arch/arm/include/generated/asm/bitsperlong.h \
   include/asm-generic/bitsperlong.h \
   include/uapi/asm-generic/bitsperlong.h \
-  /home/scott/linux-at91-master/include/uapi/linux/posix_types.h \
-  /home/scott/linux-at91-master/arch/arm/include/uapi/asm/posix_types.h \
-  /home/scott/linux-at91-master/include/uapi/asm-generic/posix_types.h \
+  /home/scott/controller/tap-linux/include/uapi/linux/posix_types.h \
+  /home/scott/controller/tap-linux/arch/arm/include/uapi/asm/posix_types.h \
+  /home/scott/controller/tap-linux/include/uapi/asm-generic/posix_types.h \
   include/linux/bitops.h \
-  /home/scott/linux-at91-master/arch/arm/include/asm/bitops.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/bitops.h \
   include/linux/irqflags.h \
     $(wildcard include/config/trace/irqflags.h) \
     $(wildcard include/config/irqsoff/tracer.h) \
     $(wildcard include/config/preempt/tracer.h) \
     $(wildcard include/config/trace/irqflags/support.h) \
   include/linux/typecheck.h \
-  /home/scott/linux-at91-master/arch/arm/include/asm/irqflags.h \
-  /home/scott/linux-at91-master/arch/arm/include/asm/ptrace.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/irqflags.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/ptrace.h \
     $(wildcard include/config/arm/thumb.h) \
-  /home/scott/linux-at91-master/arch/arm/include/uapi/asm/ptrace.h \
+  /home/scott/controller/tap-linux/arch/arm/include/uapi/asm/ptrace.h \
     $(wildcard include/config/cpu/endian/be8.h) \
-  /home/scott/linux-at91-master/arch/arm/include/asm/hwcap.h \
-  /home/scott/linux-at91-master/arch/arm/include/uapi/asm/hwcap.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/hwcap.h \
+  /home/scott/controller/tap-linux/arch/arm/include/uapi/asm/hwcap.h \
   include/asm-generic/bitops/non-atomic.h \
   include/asm-generic/bitops/fls64.h \
   include/asm-generic/bitops/sched.h \
@@ -90,13 +90,13 @@ deps_net/mac80211/pm.o := \
   include/asm-generic/bitops/const_hweight.h \
   include/asm-generic/bitops/lock.h \
   include/asm-generic/bitops/le.h \
-  /home/scott/linux-at91-master/arch/arm/include/uapi/asm/byteorder.h \
+  /home/scott/controller/tap-linux/arch/arm/include/uapi/asm/byteorder.h \
   include/linux/byteorder/little_endian.h \
   include/uapi/linux/byteorder/little_endian.h \
   include/linux/swab.h \
   include/uapi/linux/swab.h \
-  /home/scott/linux-at91-master/arch/arm/include/asm/swab.h \
-  /home/scott/linux-at91-master/arch/arm/include/uapi/asm/swab.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/swab.h \
+  /home/scott/controller/tap-linux/arch/arm/include/uapi/asm/swab.h \
   include/linux/byteorder/generic.h \
   include/asm-generic/bitops/ext2-atomic-setbit.h \
   include/linux/log2.h \
@@ -113,14 +113,14 @@ deps_net/mac80211/pm.o := \
   include/linux/string.h \
     $(wildcard include/config/binary/printf.h) \
   include/uapi/linux/string.h \
-  /home/scott/linux-at91-master/arch/arm/include/asm/string.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/string.h \
   include/linux/errno.h \
   include/uapi/linux/errno.h \
   arch/arm/include/generated/asm/errno.h \
-  /home/scott/linux-at91-master/include/uapi/asm-generic/errno.h \
-  /home/scott/linux-at91-master/include/uapi/asm-generic/errno-base.h \
+  /home/scott/controller/tap-linux/include/uapi/asm-generic/errno.h \
+  /home/scott/controller/tap-linux/include/uapi/asm-generic/errno-base.h \
   include/uapi/linux/kernel.h \
-  /home/scott/linux-at91-master/include/uapi/linux/sysinfo.h \
+  /home/scott/controller/tap-linux/include/uapi/linux/sysinfo.h \
   include/linux/if_ether.h \
   include/linux/skbuff.h \
     $(wildcard include/config/nf/conntrack.h) \
@@ -153,7 +153,7 @@ deps_net/mac80211/pm.o := \
   include/linux/auxvec.h \
   include/uapi/linux/auxvec.h \
   arch/arm/include/generated/asm/auxvec.h \
-  /home/scott/linux-at91-master/include/uapi/asm-generic/auxvec.h \
+  /home/scott/controller/tap-linux/include/uapi/asm-generic/auxvec.h \
   include/linux/threads.h \
     $(wildcard include/config/nr/cpus.h) \
     $(wildcard include/config/base/small.h) \
@@ -161,7 +161,7 @@ deps_net/mac80211/pm.o := \
     $(wildcard include/config/debug/list.h) \
   include/linux/poison.h \
     $(wildcard include/config/illegal/pointer/value.h) \
-  /home/scott/linux-at91-master/include/uapi/linux/const.h \
+  /home/scott/controller/tap-linux/include/uapi/linux/const.h \
   include/linux/spinlock.h \
     $(wildcard include/config/debug/spinlock.h) \
     $(wildcard include/config/generic/lockbreak.h) \
@@ -175,22 +175,22 @@ deps_net/mac80211/pm.o := \
   include/linux/thread_info.h \
     $(wildcard include/config/compat.h) \
     $(wildcard include/config/debug/stack/usage.h) \
-  /home/scott/linux-at91-master/arch/arm/include/asm/thread_info.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/thread_info.h \
     $(wildcard include/config/crunch.h) \
     $(wildcard include/config/arm/thumbee.h) \
-  /home/scott/linux-at91-master/arch/arm/include/asm/fpstate.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/fpstate.h \
     $(wildcard include/config/vfpv3.h) \
     $(wildcard include/config/iwmmxt.h) \
-  /home/scott/linux-at91-master/arch/arm/include/asm/domain.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/domain.h \
     $(wildcard include/config/io/36.h) \
     $(wildcard include/config/cpu/use/domains.h) \
-  /home/scott/linux-at91-master/arch/arm/include/asm/barrier.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/barrier.h \
     $(wildcard include/config/cpu/32v6k.h) \
     $(wildcard include/config/cpu/xsc3.h) \
     $(wildcard include/config/cpu/fa526.h) \
     $(wildcard include/config/arch/has/barriers.h) \
     $(wildcard include/config/arm/dma/mem/bufferable.h) \
-  /home/scott/linux-at91-master/arch/arm/include/asm/outercache.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/outercache.h \
     $(wildcard include/config/outer/cache/sync.h) \
     $(wildcard include/config/outer/cache.h) \
   include/linux/bottom_half.h \
@@ -202,17 +202,17 @@ deps_net/mac80211/pm.o := \
     $(wildcard include/config/prove/rcu.h) \
   include/linux/rwlock_types.h \
   include/linux/spinlock_up.h \
-  /home/scott/linux-at91-master/arch/arm/include/asm/processor.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/processor.h \
     $(wildcard include/config/have/hw/breakpoint.h) \
     $(wildcard include/config/arm/errata/754327.h) \
-  /home/scott/linux-at91-master/arch/arm/include/asm/hw_breakpoint.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/hw_breakpoint.h \
   include/linux/rwlock.h \
   include/linux/spinlock_api_up.h \
   include/linux/atomic.h \
     $(wildcard include/config/arch/has/atomic/or.h) \
     $(wildcard include/config/generic/atomic64.h) \
-  /home/scott/linux-at91-master/arch/arm/include/asm/atomic.h \
-  /home/scott/linux-at91-master/arch/arm/include/asm/cmpxchg.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/atomic.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/cmpxchg.h \
     $(wildcard include/config/cpu/sa1100.h) \
     $(wildcard include/config/cpu/sa110.h) \
     $(wildcard include/config/cpu/v6.h) \
@@ -245,7 +245,7 @@ deps_net/mac80211/pm.o := \
   include/linux/numa.h \
     $(wildcard include/config/nodes/shift.h) \
   include/generated/bounds.h \
-  /home/scott/linux-at91-master/arch/arm/include/asm/page.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/page.h \
     $(wildcard include/config/cpu/copy/v4wt.h) \
     $(wildcard include/config/cpu/copy/v4wb.h) \
     $(wildcard include/config/cpu/copy/feroceon.h) \
@@ -253,9 +253,9 @@ deps_net/mac80211/pm.o := \
     $(wildcard include/config/cpu/xscale.h) \
     $(wildcard include/config/cpu/copy/v6.h) \
     $(wildcard include/config/have/arch/pfn/valid.h) \
-  /home/scott/linux-at91-master/arch/arm/include/asm/glue.h \
-  /home/scott/linux-at91-master/arch/arm/include/asm/pgtable-2level-types.h \
-  /home/scott/linux-at91-master/arch/arm/include/asm/memory.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/glue.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/pgtable-2level-types.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/memory.h \
     $(wildcard include/config/need/mach/memory/h.h) \
     $(wildcard include/config/page/offset.h) \
     $(wildcard include/config/highmem.h) \
@@ -270,25 +270,25 @@ deps_net/mac80211/pm.o := \
     $(wildcard include/config/flatmem.h) \
     $(wildcard include/config/discontigmem.h) \
   include/asm-generic/getorder.h \
-  /home/scott/linux-at91-master/arch/arm/include/asm/mmu.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/mmu.h \
     $(wildcard include/config/cpu/has/asid.h) \
   include/linux/time.h \
     $(wildcard include/config/arch/uses/gettimeoffset.h) \
   include/linux/cache.h \
     $(wildcard include/config/arch/has/cache/line/size.h) \
-  /home/scott/linux-at91-master/arch/arm/include/asm/cache.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/cache.h \
     $(wildcard include/config/arm/l1/cache/shift.h) \
     $(wildcard include/config/aeabi.h) \
   include/linux/seqlock.h \
   include/linux/math64.h \
-  /home/scott/linux-at91-master/arch/arm/include/asm/div64.h \
-  /home/scott/linux-at91-master/arch/arm/include/asm/compiler.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/div64.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/compiler.h \
   include/uapi/linux/time.h \
   include/linux/net.h \
   include/linux/random.h \
     $(wildcard include/config/arch/random.h) \
   include/uapi/linux/random.h \
-  /home/scott/linux-at91-master/include/uapi/linux/ioctl.h \
+  /home/scott/controller/tap-linux/include/uapi/linux/ioctl.h \
   arch/arm/include/generated/asm/ioctl.h \
   include/asm-generic/ioctl.h \
   include/uapi/asm-generic/ioctl.h \
@@ -297,8 +297,8 @@ deps_net/mac80211/pm.o := \
   include/uapi/linux/irqnr.h \
   include/linux/fcntl.h \
   include/uapi/linux/fcntl.h \
-  /home/scott/linux-at91-master/arch/arm/include/uapi/asm/fcntl.h \
-  /home/scott/linux-at91-master/include/uapi/asm-generic/fcntl.h \
+  /home/scott/controller/tap-linux/arch/arm/include/uapi/asm/fcntl.h \
+  /home/scott/controller/tap-linux/include/uapi/asm-generic/fcntl.h \
   include/linux/rcupdate.h \
     $(wildcard include/config/rcu/torture/test.h) \
     $(wildcard include/config/tree/rcu.h) \
@@ -318,10 +318,10 @@ deps_net/mac80211/pm.o := \
   include/linux/socket.h \
     $(wildcard include/config/proc/fs.h) \
   arch/arm/include/generated/asm/socket.h \
-  /home/scott/linux-at91-master/include/uapi/asm-generic/socket.h \
+  /home/scott/controller/tap-linux/include/uapi/asm-generic/socket.h \
   arch/arm/include/generated/asm/sockios.h \
-  /home/scott/linux-at91-master/include/uapi/asm-generic/sockios.h \
-  /home/scott/linux-at91-master/include/uapi/linux/sockios.h \
+  /home/scott/controller/tap-linux/include/uapi/asm-generic/sockios.h \
+  /home/scott/controller/tap-linux/include/uapi/linux/sockios.h \
   include/linux/uio.h \
   include/uapi/linux/uio.h \
   include/uapi/linux/socket.h \
@@ -384,12 +384,12 @@ deps_net/mac80211/pm.o := \
   include/linux/jiffies.h \
   include/linux/timex.h \
   include/uapi/linux/timex.h \
-  /home/scott/linux-at91-master/include/uapi/linux/param.h \
+  /home/scott/controller/tap-linux/include/uapi/linux/param.h \
   arch/arm/include/generated/asm/param.h \
   include/asm-generic/param.h \
     $(wildcard include/config/hz.h) \
   include/uapi/asm-generic/param.h \
-  /home/scott/linux-at91-master/arch/arm/include/asm/timex.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/timex.h \
     $(wildcard include/config/arch/multiplatform.h) \
   arch/arm/mach-at91/include/mach/timex.h \
   arch/arm/mach-at91/include/mach/hardware.h \
@@ -417,11 +417,11 @@ deps_net/mac80211/pm.o := \
     $(wildcard include/config/need/per/cpu/page/first/chunk.h) \
     $(wildcard include/config/have/setup/per/cpu/area.h) \
   include/linux/pfn.h \
-  /home/scott/linux-at91-master/arch/arm/include/asm/percpu.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/percpu.h \
   include/asm-generic/percpu.h \
   include/linux/percpu-defs.h \
     $(wildcard include/config/debug/force/weak/per/cpu.h) \
-  /home/scott/linux-at91-master/arch/arm/include/asm/topology.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/topology.h \
     $(wildcard include/config/arm/cpu/topology.h) \
   include/asm-generic/topology.h \
   include/linux/mmdebug.h \
@@ -430,10 +430,10 @@ deps_net/mac80211/pm.o := \
   include/linux/slab_def.h \
     $(wildcard include/config/memcg/kmem.h) \
   include/net/checksum.h \
-  /home/scott/linux-at91-master/arch/arm/include/asm/uaccess.h \
-  /home/scott/linux-at91-master/arch/arm/include/asm/unified.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/uaccess.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/unified.h \
     $(wildcard include/config/arm/asm/unified.h) \
-  /home/scott/linux-at91-master/arch/arm/include/asm/checksum.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/checksum.h \
   include/linux/in6.h \
   include/uapi/linux/in6.h \
   include/linux/dmaengine.h \
@@ -468,7 +468,7 @@ deps_net/mac80211/pm.o := \
   include/linux/uidgid.h \
     $(wildcard include/config/uidgid/strict/type/checks.h) \
   include/linux/highuid.h \
-  /home/scott/linux-at91-master/arch/arm/include/asm/device.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/device.h \
     $(wildcard include/config/dmabounce.h) \
     $(wildcard include/config/iommu/api.h) \
     $(wildcard include/config/arm/dma/use/iommu.h) \
@@ -495,10 +495,10 @@ deps_net/mac80211/pm.o := \
   include/linux/range.h \
   include/linux/bit_spinlock.h \
   include/linux/shrinker.h \
-  /home/scott/linux-at91-master/arch/arm/include/asm/pgtable.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/pgtable.h \
     $(wildcard include/config/highpte.h) \
-  /home/scott/linux-at91-master/arch/arm/include/asm/proc-fns.h \
-  /home/scott/linux-at91-master/arch/arm/include/asm/glue-proc.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/proc-fns.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/glue-proc.h \
     $(wildcard include/config/cpu/arm7tdmi.h) \
     $(wildcard include/config/cpu/arm720t.h) \
     $(wildcard include/config/cpu/arm740t.h) \
@@ -519,9 +519,9 @@ deps_net/mac80211/pm.o := \
     $(wildcard include/config/cpu/v7.h) \
     $(wildcard include/config/cpu/pj4b.h) \
   include/asm-generic/pgtable-nopud.h \
-  /home/scott/linux-at91-master/arch/arm/include/asm/pgtable-hwdef.h \
-  /home/scott/linux-at91-master/arch/arm/include/asm/pgtable-2level-hwdef.h \
-  /home/scott/linux-at91-master/arch/arm/include/asm/pgtable-2level.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/pgtable-hwdef.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/pgtable-2level-hwdef.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/pgtable-2level.h \
   include/asm-generic/pgtable.h \
   include/linux/page-flags.h \
     $(wildcard include/config/pageflags/extended.h) \
@@ -533,11 +533,11 @@ deps_net/mac80211/pm.o := \
     $(wildcard include/config/vm/event/counters.h) \
   include/linux/vm_event_item.h \
     $(wildcard include/config/migration.h) \
-  /home/scott/linux-at91-master/arch/arm/include/asm/scatterlist.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/scatterlist.h \
     $(wildcard include/config/arm/has/sg/chain.h) \
   include/asm-generic/scatterlist.h \
     $(wildcard include/config/need/sg/dma/length.h) \
-  /home/scott/linux-at91-master/arch/arm/include/asm/io.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/io.h \
     $(wildcard include/config/need/mach/io/h.h) \
     $(wildcard include/config/pci.h) \
     $(wildcard include/config/pcmcia/soc/common.h) \
@@ -557,7 +557,7 @@ deps_net/mac80211/pm.o := \
     $(wildcard include/config/need/dma/map/state.h) \
   include/linux/dma-attrs.h \
   include/linux/dma-direction.h \
-  /home/scott/linux-at91-master/arch/arm/include/asm/dma-mapping.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/dma-mapping.h \
   include/linux/dma-debug.h \
     $(wildcard include/config/dma/api/debug.h) \
   include/asm-generic/dma-coherent.h \
@@ -598,9 +598,9 @@ deps_net/mac80211/pm.o := \
   include/linux/plist.h \
     $(wildcard include/config/debug/pi/list.h) \
   include/linux/miscdevice.h \
-  /home/scott/linux-at91-master/include/uapi/linux/major.h \
+  /home/scott/controller/tap-linux/include/uapi/linux/major.h \
   include/linux/delay.h \
-  /home/scott/linux-at91-master/arch/arm/include/asm/delay.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/delay.h \
   include/linux/rculist.h \
   include/linux/dynamic_queue_limits.h \
   include/linux/ethtool.h \
@@ -619,7 +619,7 @@ deps_net/mac80211/pm.o := \
   include/net/netns/mib.h \
     $(wildcard include/config/xfrm/statistics.h) \
   include/net/snmp.h \
-  /home/scott/linux-at91-master/include/uapi/linux/snmp.h \
+  /home/scott/controller/tap-linux/include/uapi/linux/snmp.h \
   include/linux/u64_stats_sync.h \
   include/net/netns/unix.h \
   include/net/netns/packet.h \
@@ -658,24 +658,24 @@ deps_net/mac80211/pm.o := \
   include/linux/list_bl.h \
   include/linux/path.h \
   include/linux/stat.h \
-  /home/scott/linux-at91-master/arch/arm/include/uapi/asm/stat.h \
+  /home/scott/controller/tap-linux/arch/arm/include/uapi/asm/stat.h \
   include/uapi/linux/stat.h \
   include/linux/radix-tree.h \
   include/linux/pid.h \
   include/linux/capability.h \
   include/uapi/linux/capability.h \
   include/linux/semaphore.h \
-  /home/scott/linux-at91-master/include/uapi/linux/fiemap.h \
+  /home/scott/controller/tap-linux/include/uapi/linux/fiemap.h \
   include/linux/migrate_mode.h \
   include/linux/percpu-rwsem.h \
   include/linux/blk_types.h \
     $(wildcard include/config/blk/cgroup.h) \
     $(wildcard include/config/blk/dev/integrity.h) \
   include/uapi/linux/fs.h \
-  /home/scott/linux-at91-master/include/uapi/linux/limits.h \
+  /home/scott/controller/tap-linux/include/uapi/linux/limits.h \
   include/linux/quota.h \
     $(wildcard include/config/quota/netlink/interface.h) \
-  /home/scott/linux-at91-master/include/uapi/linux/dqblk_xfs.h \
+  /home/scott/controller/tap-linux/include/uapi/linux/dqblk_xfs.h \
   include/linux/dqblk_v1.h \
   include/linux/dqblk_v2.h \
   include/linux/dqblk_qtree.h \
@@ -685,15 +685,15 @@ deps_net/mac80211/pm.o := \
   include/linux/netfilter.h \
     $(wildcard include/config/jump/label.h) \
     $(wildcard include/config/nf/nat/needed.h) \
-  /home/scott/linux-at91-master/include/uapi/linux/if.h \
-  /home/scott/linux-at91-master/include/uapi/linux/hdlc/ioctl.h \
+  /home/scott/controller/tap-linux/include/uapi/linux/if.h \
+  /home/scott/controller/tap-linux/include/uapi/linux/hdlc/ioctl.h \
   include/linux/in.h \
   include/uapi/linux/in.h \
   include/uapi/linux/netfilter.h \
   include/net/netns/x_tables.h \
     $(wildcard include/config/bridge/nf/ebtables.h) \
   include/net/netns/xfrm.h \
-  /home/scott/linux-at91-master/include/uapi/linux/xfrm.h \
+  /home/scott/controller/tap-linux/include/uapi/linux/xfrm.h \
   include/linux/seq_file_net.h \
   include/linux/sched.h \
     $(wildcard include/config/sched/debug.h) \
@@ -744,16 +744,16 @@ deps_net/mac80211/pm.o := \
   include/linux/ipc.h \
   include/uapi/linux/ipc.h \
   arch/arm/include/generated/asm/ipcbuf.h \
-  /home/scott/linux-at91-master/include/uapi/asm-generic/ipcbuf.h \
+  /home/scott/controller/tap-linux/include/uapi/asm-generic/ipcbuf.h \
   arch/arm/include/generated/asm/sembuf.h \
-  /home/scott/linux-at91-master/include/uapi/asm-generic/sembuf.h \
+  /home/scott/controller/tap-linux/include/uapi/asm-generic/sembuf.h \
   include/linux/signal.h \
     $(wildcard include/config/old/sigaction.h) \
   include/uapi/linux/signal.h \
-  /home/scott/linux-at91-master/arch/arm/include/asm/signal.h \
-  /home/scott/linux-at91-master/arch/arm/include/uapi/asm/signal.h \
-  /home/scott/linux-at91-master/include/uapi/asm-generic/signal-defs.h \
-  /home/scott/linux-at91-master/arch/arm/include/uapi/asm/sigcontext.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/signal.h \
+  /home/scott/controller/tap-linux/arch/arm/include/uapi/asm/signal.h \
+  /home/scott/controller/tap-linux/include/uapi/asm-generic/signal-defs.h \
+  /home/scott/controller/tap-linux/arch/arm/include/uapi/asm/sigcontext.h \
   arch/arm/include/generated/asm/siginfo.h \
   include/asm-generic/siginfo.h \
   include/uapi/asm-generic/siginfo.h \
@@ -783,8 +783,8 @@ deps_net/mac80211/pm.o := \
   include/net/dsa.h \
   include/net/netprio_cgroup.h \
   include/linux/cgroup.h \
-  /home/scott/linux-at91-master/include/uapi/linux/cgroupstats.h \
-  /home/scott/linux-at91-master/include/uapi/linux/taskstats.h \
+  /home/scott/controller/tap-linux/include/uapi/linux/cgroupstats.h \
+  /home/scott/controller/tap-linux/include/uapi/linux/taskstats.h \
   include/linux/prio_heap.h \
   include/linux/idr.h \
   include/linux/xattr.h \
@@ -793,12 +793,12 @@ deps_net/mac80211/pm.o := \
   include/linux/ftrace_irq.h \
     $(wildcard include/config/ftrace/nmi/enter.h) \
   include/linux/vtime.h \
-  /home/scott/linux-at91-master/arch/arm/include/asm/hardirq.h \
-  /home/scott/linux-at91-master/arch/arm/include/asm/irq.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/hardirq.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/irq.h \
     $(wildcard include/config/sparse/irq.h) \
     $(wildcard include/config/multi/irq/handler.h) \
   include/linux/irq_cpustat.h \
-  /home/scott/linux-at91-master/include/uapi/linux/neighbour.h \
+  /home/scott/controller/tap-linux/include/uapi/linux/neighbour.h \
   include/linux/netlink.h \
   include/net/scm.h \
     $(wildcard include/config/security/network.h) \
@@ -809,12 +809,12 @@ deps_net/mac80211/pm.o := \
     $(wildcard include/config/security/yama.h) \
   include/uapi/linux/netlink.h \
   include/uapi/linux/netdevice.h \
-  /home/scott/linux-at91-master/include/uapi/linux/if_packet.h \
+  /home/scott/controller/tap-linux/include/uapi/linux/if_packet.h \
   include/linux/if_link.h \
   include/uapi/linux/if_link.h \
   include/linux/debugfs.h \
     $(wildcard include/config/debug/fs.h) \
-  /home/scott/linux-at91-master/include/uapi/linux/nl80211.h \
+  /home/scott/controller/tap-linux/include/uapi/linux/nl80211.h \
   include/net/regulatory.h \
   arch/arm/include/generated/asm/unaligned.h \
   include/asm-generic/unaligned.h \
@@ -825,7 +825,7 @@ deps_net/mac80211/pm.o := \
   include/net/rtnetlink.h \
   include/linux/rtnetlink.h \
   include/uapi/linux/rtnetlink.h \
-  /home/scott/linux-at91-master/include/uapi/linux/if_addr.h \
+  /home/scott/controller/tap-linux/include/uapi/linux/if_addr.h \
   include/net/netlink.h \
   net/mac80211/ieee80211_i.h \
     $(wildcard include/config/mac80211/debug/counters.h) \

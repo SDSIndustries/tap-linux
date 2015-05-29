@@ -25,7 +25,7 @@
 			};
 
 			can0: can@f000c000 {
-				status = "okay";
+				status = "disabled";
 			};
 
 			i2c0: i2c@f0014000 {
@@ -48,6 +48,10 @@
 			macb1: ethernet@f802c000 {
 				status = "okay";
 			};
+
+			pwm0: pwm@f002c000 {
+				status = "okay";
+			};
 		};
 	};
 
@@ -61,6 +65,6 @@
 	};
 
 	sound {
-		status = "okay";
+		status = "disabled";
 	};
 };

@@ -1,6 +1,6 @@
 at91sam9n12ek.o: arch/arm/boot/dts/at91sam9n12ek.dts \
  arch/arm/boot/dts/at91sam9n12.dtsi arch/arm/boot/dts/skeleton.dtsi \
- /home/scott/linux-at91-master/arch/arm/boot/dts/include/dt-bindings/dma/at91.h \
- /home/scott/linux-at91-master/arch/arm/boot/dts/include/dt-bindings/pinctrl/at91.h \
- /home/scott/linux-at91-master/arch/arm/boot/dts/include/dt-bindings/interrupt-controller/irq.h \
- /home/scott/linux-at91-master/arch/arm/boot/dts/include/dt-bindings/gpio/gpio.h
+ /home/scott/controller/tap-linux/arch/arm/boot/dts/include/dt-bindings/dma/at91.h \
+ /home/scott/controller/tap-linux/arch/arm/boot/dts/include/dt-bindings/pinctrl/at91.h \
+ /home/scott/controller/tap-linux/arch/arm/boot/dts/include/dt-bindings/interrupt-controller/irq.h \
+ /home/scott/controller/tap-linux/arch/arm/boot/dts/include/dt-bindings/gpio/gpio.h

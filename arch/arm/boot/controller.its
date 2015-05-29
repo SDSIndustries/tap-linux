@@ -26,7 +26,7 @@
 			};
 		};
 		fdt@1 {
-			description = "Flattened Device Tree Blob";
+			description = "SDS Controller FDT Blob";
 			data = /incbin/("./dts/sama5d36ek.dtb");
 			type = "flat_dt";
 			arch = "arm";

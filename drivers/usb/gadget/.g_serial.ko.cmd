@@ -1,1 +1,1 @@
-cmd_drivers/usb/gadget/g_serial.ko := /usr/bin/arm-linux-gnueabi-ld -EL -r  -T /home/scott/linux-at91-master/scripts/module-common.lds --build-id  -o drivers/usb/gadget/g_serial.ko drivers/usb/gadget/g_serial.o drivers/usb/gadget/g_serial.mod.o
+cmd_drivers/usb/gadget/g_serial.ko := /usr/bin/arm-linux-gnueabi-ld -EL -r  -T /home/scott/controller/tap-linux/scripts/module-common.lds --build-id  -o drivers/usb/gadget/g_serial.ko drivers/usb/gadget/g_serial.o drivers/usb/gadget/g_serial.mod.o

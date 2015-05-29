@@ -14,17 +14,18 @@
 @	compiled by GNU C version 4.8.2, GMP version 5.1.3, MPFR version 3.1.2-p3, MPC version 1.0.1
 @ GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
 @ options passed:  -nostdinc
-@ -I /home/scott/linux-at91-master/arch/arm/include
+@ -I /home/scott/controller/tap-linux/arch/arm/include
 @ -I arch/arm/include/generated -I include
-@ -I /home/scott/linux-at91-master/arch/arm/include/uapi
+@ -I /home/scott/controller/tap-linux/arch/arm/include/uapi
 @ -I arch/arm/include/generated/uapi
-@ -I /home/scott/linux-at91-master/include/uapi -I include/generated/uapi
-@ -I arch/arm/mach-at91/include -imultilib sf -imultiarch arm-linux-gnueabi
-@ -D __KERNEL__ -D __LINUX_ARM_ARCH__=7 -U arm -D CC_HAVE_ASM_GOTO
-@ -D KBUILD_STR(s)=#s -D KBUILD_BASENAME=KBUILD_STR(asm_offsets)
+@ -I /home/scott/controller/tap-linux/include/uapi
+@ -I include/generated/uapi -I arch/arm/mach-at91/include -imultilib sf
+@ -imultiarch arm-linux-gnueabi -D __KERNEL__ -D __LINUX_ARM_ARCH__=7
+@ -U arm -D CC_HAVE_ASM_GOTO -D KBUILD_STR(s)=#s
+@ -D KBUILD_BASENAME=KBUILD_STR(asm_offsets)
 @ -D KBUILD_MODNAME=KBUILD_STR(asm_offsets)
 @ -isystem /usr/lib/gcc-cross/arm-linux-gnueabi/4.7/include
-@ -include /home/scott/linux-at91-master/include/linux/kconfig.h
+@ -include /home/scott/controller/tap-linux/include/linux/kconfig.h
 @ -MD arch/arm/kernel/.asm-offsets.s.d arch/arm/kernel/asm-offsets.c
 @ -mlittle-endian -mabi=aapcs-linux -mno-thumb-interwork -marm
 @ -march=armv7-a -mfloat-abi=soft -mtls-dialect=gnu

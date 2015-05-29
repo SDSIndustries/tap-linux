@@ -25,7 +25,7 @@
 			};
 
 			can0: can@f000c000 {
-				status = "okay";
+				status = "disabled";
 			};
 
 			i2c0: i2c@f0014000 {
@@ -33,12 +33,12 @@
 			};
 
 			i2c1: i2c@f0018000 {
-				status = "okay";
+				status = "disabled";
 			};
 
 			/* ISI VSYNC/HSYNC Conflict with i2c0 */
 			isi: isi@f0034000 {
-				status = "okay";
+				status = "disabled";
 			};
 
 			macb0: ethernet@f0028000 {
@@ -65,6 +65,6 @@
 	};
 
 	sound {
-		status = "okay";
+		status = "disabled";
 	};
 };

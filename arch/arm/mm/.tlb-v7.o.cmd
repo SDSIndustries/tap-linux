@@ -1,10 +1,10 @@
-cmd_arch/arm/mm/tlb-v7.o := /usr/bin/arm-linux-gnueabi-gcc -Wp,-MD,arch/arm/mm/.tlb-v7.o.d  -nostdinc -isystem /usr/lib/gcc-cross/arm-linux-gnueabi/4.7/include -I/home/scott/linux-at91-master/arch/arm/include -Iarch/arm/include/generated  -Iinclude -I/home/scott/linux-at91-master/arch/arm/include/uapi -Iarch/arm/include/generated/uapi -I/home/scott/linux-at91-master/include/uapi -Iinclude/generated/uapi -include /home/scott/linux-at91-master/include/linux/kconfig.h -D__KERNEL__ -mlittle-endian -Iarch/arm/mach-at91/include  -D__ASSEMBLY__ -mabi=aapcs-linux -mno-thumb-interwork -funwind-tables -marm -D__LINUX_ARM_ARCH__=7 -march=armv7-a  -include asm/unified.h -msoft-float      -Wa,-march=armv7-a   -c -o arch/arm/mm/tlb-v7.o arch/arm/mm/tlb-v7.S
+cmd_arch/arm/mm/tlb-v7.o := /usr/bin/arm-linux-gnueabi-gcc -Wp,-MD,arch/arm/mm/.tlb-v7.o.d  -nostdinc -isystem /usr/lib/gcc-cross/arm-linux-gnueabi/4.7/include -I/home/scott/controller/tap-linux/arch/arm/include -Iarch/arm/include/generated  -Iinclude -I/home/scott/controller/tap-linux/arch/arm/include/uapi -Iarch/arm/include/generated/uapi -I/home/scott/controller/tap-linux/include/uapi -Iinclude/generated/uapi -include /home/scott/controller/tap-linux/include/linux/kconfig.h -D__KERNEL__ -mlittle-endian -Iarch/arm/mach-at91/include  -D__ASSEMBLY__ -mabi=aapcs-linux -mno-thumb-interwork -funwind-tables -marm -D__LINUX_ARM_ARCH__=7 -march=armv7-a  -include asm/unified.h -msoft-float      -Wa,-march=armv7-a   -c -o arch/arm/mm/tlb-v7.o arch/arm/mm/tlb-v7.S
 
 source_arch/arm/mm/tlb-v7.o := arch/arm/mm/tlb-v7.S
 
 deps_arch/arm/mm/tlb-v7.o := \
     $(wildcard include/config/arm/errata/720789.h) \
-  /home/scott/linux-at91-master/arch/arm/include/asm/unified.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/unified.h \
     $(wildcard include/config/arm/asm/unified.h) \
     $(wildcard include/config/thumb2/kernel.h) \
   include/linux/init.h \
@@ -25,7 +25,7 @@ deps_arch/arm/mm/tlb-v7.o := \
     $(wildcard include/config/64bit.h) \
   include/uapi/linux/types.h \
   arch/arm/include/generated/asm/types.h \
-  /home/scott/linux-at91-master/include/uapi/asm-generic/types.h \
+  /home/scott/controller/tap-linux/include/uapi/asm-generic/types.h \
   include/asm-generic/int-ll64.h \
   include/uapi/asm-generic/int-ll64.h \
   arch/arm/include/generated/asm/bitsperlong.h \
@@ -37,26 +37,26 @@ deps_arch/arm/mm/tlb-v7.o := \
     $(wildcard include/config/have/underscore/symbol/prefix.h) \
     $(wildcard include/config/modversions.h) \
     $(wildcard include/config/unused/symbols.h) \
-  /home/scott/linux-at91-master/arch/arm/include/asm/linkage.h \
-  /home/scott/linux-at91-master/arch/arm/include/asm/assembler.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/linkage.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/assembler.h \
     $(wildcard include/config/cpu/feroceon.h) \
     $(wildcard include/config/trace/irqflags.h) \
     $(wildcard include/config/smp.h) \
     $(wildcard include/config/cpu/use/domains.h) \
-  /home/scott/linux-at91-master/arch/arm/include/asm/ptrace.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/ptrace.h \
     $(wildcard include/config/arm/thumb.h) \
-  /home/scott/linux-at91-master/arch/arm/include/uapi/asm/ptrace.h \
+  /home/scott/controller/tap-linux/arch/arm/include/uapi/asm/ptrace.h \
     $(wildcard include/config/cpu/endian/be8.h) \
-  /home/scott/linux-at91-master/arch/arm/include/asm/hwcap.h \
-  /home/scott/linux-at91-master/arch/arm/include/uapi/asm/hwcap.h \
-  /home/scott/linux-at91-master/arch/arm/include/asm/domain.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/hwcap.h \
+  /home/scott/controller/tap-linux/arch/arm/include/uapi/asm/hwcap.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/domain.h \
     $(wildcard include/config/io/36.h) \
-  /home/scott/linux-at91-master/arch/arm/include/asm/opcodes-virt.h \
-  /home/scott/linux-at91-master/arch/arm/include/asm/opcodes.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/opcodes-virt.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/opcodes.h \
     $(wildcard include/config/cpu/endian/be32.h) \
-  /home/scott/linux-at91-master/arch/arm/include/asm/asm-offsets.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/asm-offsets.h \
   include/generated/asm-offsets.h \
-  /home/scott/linux-at91-master/arch/arm/include/asm/page.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/page.h \
     $(wildcard include/config/mmu.h) \
     $(wildcard include/config/cpu/copy/v4wt.h) \
     $(wildcard include/config/cpu/copy/v4wb.h) \
@@ -69,7 +69,7 @@ deps_arch/arm/mm/tlb-v7.o := \
     $(wildcard include/config/arm/lpae.h) \
     $(wildcard include/config/have/arch/pfn/valid.h) \
   include/asm-generic/getorder.h \
-  /home/scott/linux-at91-master/arch/arm/include/asm/tlbflush.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/tlbflush.h \
     $(wildcard include/config/smp/on/up.h) \
     $(wildcard include/config/cpu/tlb/v4wt.h) \
     $(wildcard include/config/cpu/tlb/fa.h) \
@@ -79,14 +79,14 @@ deps_arch/arm/mm/tlb-v7.o := \
     $(wildcard include/config/cpu/tlb/v6.h) \
     $(wildcard include/config/cpu/tlb/v7.h) \
     $(wildcard include/config/arm/errata/798181.h) \
-  /home/scott/linux-at91-master/arch/arm/include/asm/glue.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/glue.h \
   arch/arm/mm/proc-macros.S \
     $(wildcard include/config/cpu/dcache/writethrough.h) \
     $(wildcard include/config/pm/sleep.h) \
-  /home/scott/linux-at91-master/arch/arm/include/asm/thread_info.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/thread_info.h \
     $(wildcard include/config/crunch.h) \
     $(wildcard include/config/arm/thumbee.h) \
-  /home/scott/linux-at91-master/arch/arm/include/asm/fpstate.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/fpstate.h \
     $(wildcard include/config/vfpv3.h) \
     $(wildcard include/config/iwmmxt.h) \
 

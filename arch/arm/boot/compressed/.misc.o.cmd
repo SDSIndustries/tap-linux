@@ -1,4 +1,4 @@
-cmd_arch/arm/boot/compressed/misc.o := /usr/bin/arm-linux-gnueabi-gcc -Wp,-MD,arch/arm/boot/compressed/.misc.o.d  -nostdinc -isystem /usr/lib/gcc-cross/arm-linux-gnueabi/4.7/include -I/home/scott/linux-at91-master/arch/arm/include -Iarch/arm/include/generated  -Iinclude -I/home/scott/linux-at91-master/arch/arm/include/uapi -Iarch/arm/include/generated/uapi -I/home/scott/linux-at91-master/include/uapi -Iinclude/generated/uapi -include /home/scott/linux-at91-master/include/linux/kconfig.h -D__KERNEL__ -mlittle-endian -Iarch/arm/mach-at91/include -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -Werror-implicit-function-declaration -Wno-format-security -fno-delete-null-pointer-checks -O2 -fno-dwarf2-cfi-asm -mabi=aapcs-linux -mno-thumb-interwork -funwind-tables -marm -D__LINUX_ARM_ARCH__=7 -march=armv7-a -msoft-float -Uarm -Wframe-larger-than=1024 -fno-stack-protector -Wno-unused-but-set-variable -fomit-frame-pointer -Wdeclaration-after-statement -Wno-pointer-sign -fno-strict-overflow -fconserve-stack -DCC_HAVE_ASM_GOTO -fpic -mno-single-pic-base -fno-builtin -Iarch/arm/boot/compressed    -D"KBUILD_STR(s)=\#s" -D"KBUILD_BASENAME=KBUILD_STR(misc)"  -D"KBUILD_MODNAME=KBUILD_STR(misc)" -c -o arch/arm/boot/compressed/misc.o arch/arm/boot/compressed/misc.c
+cmd_arch/arm/boot/compressed/misc.o := /usr/bin/arm-linux-gnueabi-gcc -Wp,-MD,arch/arm/boot/compressed/.misc.o.d  -nostdinc -isystem /usr/lib/gcc-cross/arm-linux-gnueabi/4.7/include -I/home/scott/controller/tap-linux/arch/arm/include -Iarch/arm/include/generated  -Iinclude -I/home/scott/controller/tap-linux/arch/arm/include/uapi -Iarch/arm/include/generated/uapi -I/home/scott/controller/tap-linux/include/uapi -Iinclude/generated/uapi -include /home/scott/controller/tap-linux/include/linux/kconfig.h -D__KERNEL__ -mlittle-endian -Iarch/arm/mach-at91/include -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -Werror-implicit-function-declaration -Wno-format-security -fno-delete-null-pointer-checks -O2 -fno-dwarf2-cfi-asm -mabi=aapcs-linux -mno-thumb-interwork -funwind-tables -marm -D__LINUX_ARM_ARCH__=7 -march=armv7-a -msoft-float -Uarm -Wframe-larger-than=1024 -fno-stack-protector -Wno-unused-but-set-variable -fomit-frame-pointer -Wdeclaration-after-statement -Wno-pointer-sign -fno-strict-overflow -fconserve-stack -DCC_HAVE_ASM_GOTO -fpic -mno-single-pic-base -fno-builtin -Iarch/arm/boot/compressed    -D"KBUILD_STR(s)=\#s" -D"KBUILD_BASENAME=KBUILD_STR(misc)"  -D"KBUILD_MODNAME=KBUILD_STR(misc)" -c -o arch/arm/boot/compressed/misc.o arch/arm/boot/compressed/misc.c
 
 source_arch/arm/boot/compressed/misc.o := arch/arm/boot/compressed/misc.c
 
@@ -29,17 +29,17 @@ deps_arch/arm/boot/compressed/misc.o := \
     $(wildcard include/config/64bit.h) \
   include/uapi/linux/types.h \
   arch/arm/include/generated/asm/types.h \
-  /home/scott/linux-at91-master/include/uapi/asm-generic/types.h \
+  /home/scott/controller/tap-linux/include/uapi/asm-generic/types.h \
   include/asm-generic/int-ll64.h \
   include/uapi/asm-generic/int-ll64.h \
   arch/arm/include/generated/asm/bitsperlong.h \
   include/asm-generic/bitsperlong.h \
   include/uapi/asm-generic/bitsperlong.h \
-  /home/scott/linux-at91-master/include/uapi/linux/posix_types.h \
+  /home/scott/controller/tap-linux/include/uapi/linux/posix_types.h \
   include/linux/stddef.h \
   include/uapi/linux/stddef.h \
-  /home/scott/linux-at91-master/arch/arm/include/uapi/asm/posix_types.h \
-  /home/scott/linux-at91-master/include/uapi/asm-generic/posix_types.h \
+  /home/scott/controller/tap-linux/arch/arm/include/uapi/asm/posix_types.h \
+  /home/scott/controller/tap-linux/include/uapi/asm-generic/posix_types.h \
   include/linux/linkage.h \
   include/linux/stringify.h \
   include/linux/export.h \
@@ -47,27 +47,27 @@ deps_arch/arm/boot/compressed/misc.o := \
     $(wildcard include/config/modules.h) \
     $(wildcard include/config/modversions.h) \
     $(wildcard include/config/unused/symbols.h) \
-  /home/scott/linux-at91-master/arch/arm/include/asm/linkage.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/linkage.h \
   arch/arm/mach-at91/include/mach/uncompress.h \
   include/linux/io.h \
     $(wildcard include/config/mmu.h) \
     $(wildcard include/config/has/ioport.h) \
-  /home/scott/linux-at91-master/arch/arm/include/asm/io.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/io.h \
     $(wildcard include/config/arm/dma/mem/bufferable.h) \
     $(wildcard include/config/need/mach/io/h.h) \
     $(wildcard include/config/pci.h) \
     $(wildcard include/config/pcmcia/soc/common.h) \
     $(wildcard include/config/isa.h) \
     $(wildcard include/config/pccard.h) \
-  /home/scott/linux-at91-master/arch/arm/include/uapi/asm/byteorder.h \
+  /home/scott/controller/tap-linux/arch/arm/include/uapi/asm/byteorder.h \
   include/linux/byteorder/little_endian.h \
   include/uapi/linux/byteorder/little_endian.h \
   include/linux/swab.h \
   include/uapi/linux/swab.h \
-  /home/scott/linux-at91-master/arch/arm/include/asm/swab.h \
-  /home/scott/linux-at91-master/arch/arm/include/uapi/asm/swab.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/swab.h \
+  /home/scott/controller/tap-linux/arch/arm/include/uapi/asm/swab.h \
   include/linux/byteorder/generic.h \
-  /home/scott/linux-at91-master/arch/arm/include/asm/memory.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/memory.h \
     $(wildcard include/config/need/mach/memory/h.h) \
     $(wildcard include/config/page/offset.h) \
     $(wildcard include/config/thumb2/kernel.h) \
@@ -78,7 +78,7 @@ deps_arch/arm/boot/compressed/misc.o := \
     $(wildcard include/config/arm/patch/phys/virt.h) \
     $(wildcard include/config/phys/offset.h) \
     $(wildcard include/config/virt/to/bus.h) \
-  /home/scott/linux-at91-master/include/uapi/linux/const.h \
+  /home/scott/controller/tap-linux/include/uapi/linux/const.h \
   include/linux/sizes.h \
   include/asm-generic/memory_model.h \
     $(wildcard include/config/flatmem.h) \
@@ -88,16 +88,16 @@ deps_arch/arm/boot/compressed/misc.o := \
   include/asm-generic/pci_iomap.h \
     $(wildcard include/config/no/generic/pci/ioport/map.h) \
     $(wildcard include/config/generic/pci/iomap.h) \
-  /home/scott/linux-at91-master/arch/arm/include/asm/barrier.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/barrier.h \
     $(wildcard include/config/cpu/32v6k.h) \
     $(wildcard include/config/cpu/xsc3.h) \
     $(wildcard include/config/cpu/fa526.h) \
     $(wildcard include/config/arch/has/barriers.h) \
     $(wildcard include/config/smp.h) \
-  /home/scott/linux-at91-master/arch/arm/include/asm/outercache.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/outercache.h \
     $(wildcard include/config/outer/cache/sync.h) \
     $(wildcard include/config/outer/cache.h) \
-  /home/scott/linux-at91-master/arch/arm/include/asm/page.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/page.h \
     $(wildcard include/config/cpu/copy/v4wt.h) \
     $(wildcard include/config/cpu/copy/v4wb.h) \
     $(wildcard include/config/cpu/copy/feroceon.h) \
@@ -106,27 +106,27 @@ deps_arch/arm/boot/compressed/misc.o := \
     $(wildcard include/config/cpu/copy/v6.h) \
     $(wildcard include/config/arm/lpae.h) \
     $(wildcard include/config/have/arch/pfn/valid.h) \
-  /home/scott/linux-at91-master/arch/arm/include/asm/glue.h \
-  /home/scott/linux-at91-master/arch/arm/include/asm/pgtable-2level-types.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/glue.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/pgtable-2level-types.h \
   include/asm-generic/getorder.h \
   include/linux/log2.h \
     $(wildcard include/config/arch/has/ilog2/u32.h) \
     $(wildcard include/config/arch/has/ilog2/u64.h) \
   include/linux/bitops.h \
-  /home/scott/linux-at91-master/arch/arm/include/asm/bitops.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/bitops.h \
   include/linux/irqflags.h \
     $(wildcard include/config/trace/irqflags.h) \
     $(wildcard include/config/irqsoff/tracer.h) \
     $(wildcard include/config/preempt/tracer.h) \
     $(wildcard include/config/trace/irqflags/support.h) \
   include/linux/typecheck.h \
-  /home/scott/linux-at91-master/arch/arm/include/asm/irqflags.h \
-  /home/scott/linux-at91-master/arch/arm/include/asm/ptrace.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/irqflags.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/ptrace.h \
     $(wildcard include/config/arm/thumb.h) \
-  /home/scott/linux-at91-master/arch/arm/include/uapi/asm/ptrace.h \
+  /home/scott/controller/tap-linux/arch/arm/include/uapi/asm/ptrace.h \
     $(wildcard include/config/cpu/endian/be8.h) \
-  /home/scott/linux-at91-master/arch/arm/include/asm/hwcap.h \
-  /home/scott/linux-at91-master/arch/arm/include/uapi/asm/hwcap.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/hwcap.h \
+  /home/scott/controller/tap-linux/arch/arm/include/uapi/asm/hwcap.h \
   include/asm-generic/bitops/non-atomic.h \
   include/asm-generic/bitops/fls64.h \
   include/asm-generic/bitops/sched.h \
