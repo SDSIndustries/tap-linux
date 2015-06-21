@@ -100,9 +100,9 @@ static struct fb_monspecs at91fb_default_monspecs = {
 static struct atmel_lcdfb_info __initdata ek_lcdc_data = {
 	.lcdcon_is_backlight		= true,
 	.alpha_enabled			= false,
-	.default_bpp			= 16,
+	.default_bpp			= 32,
 	/* Reserve enough memory for 32bpp */
-	.smem_len			= 800 * 480 * 4,
+	.smem_len			= 480 * 272 * 4,
 	/* default_lcdcon2 is used for LCDCFG5 */
 	.default_lcdcon2		= BPP_OUT_DEFAULT_LCDCFG5,
 	.default_monspecs		= &at91fb_default_monspecs,

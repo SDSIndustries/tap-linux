@@ -69,12 +69,12 @@ static struct fb_videomode at91_tft_vga_modes[] = {
 	{
 		.name		= "LG",
 		.refresh	= 60,
-		.xres		= 800,		.yres		= 480,
-		.pixclock	= KHZ2PICOS(33260),
+		.xres		= 480,		.yres		= 272,
+		.pixclock	= KHZ2PICOS(9000),
 
-		.left_margin	= 88,		.right_margin	= 168,
-		.upper_margin	= 8,		.lower_margin	= 37,
-		.hsync_len	= 128,		.vsync_len	= 2,
+		.left_margin	= 2,		.right_margin	= 2,
+		.upper_margin	= 2,		.lower_margin	= 2,
+		.hsync_len	= 41,		.vsync_len	= 10,
 
 		.sync		= LCDC_LCDCFG5_VSPDLYS | LCDC_LCDCFG5_DISPDLY,
 		.vmode		= FB_VMODE_NONINTERLACED,
@@ -100,7 +100,7 @@ static struct fb_monspecs at91fb_default_monspecs = {
 static struct atmel_lcdfb_info __initdata ek_lcdc_data = {
 	.lcdcon_is_backlight		= true,
 	.alpha_enabled			= false,
-	.default_bpp			= 16,
+	.default_bpp			= 32,
 	/* Reserve enough memory for 32bpp */
 	.smem_len			= 800 * 480 * 4,
 	/* default_lcdcon2 is used for LCDCFG5 */
