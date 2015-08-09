@@ -763,6 +763,13 @@
 					};
 				};
 
+				pwm0 {
+					pinctrl_pwm0_pwmh2: pwm0_pwmh2 {
+						atmel,pins =
+							<AT91_PIOD 5 AT91_PERIPH_C AT91_PINCTRL_NONE>;
+					};
+				};
+
 				spi0 {
 					pinctrl_spi0: spi0-0 {
 						atmel,pins =

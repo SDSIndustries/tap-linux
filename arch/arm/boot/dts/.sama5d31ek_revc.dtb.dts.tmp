@@ -782,6 +782,13 @@
      };
     };
 
+    pwm0 {
+     pinctrl_pwm0_pwmh2: pwm0_pwmh2 {
+      atmel,pins =
+       <3 5 3 (0 << 0)>;
+     };
+    };
+
     spi0 {
      pinctrl_spi0: spi0-0 {
       atmel,pins =

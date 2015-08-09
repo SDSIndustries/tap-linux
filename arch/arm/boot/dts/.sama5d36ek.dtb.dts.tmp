@@ -782,6 +782,13 @@
      };
     };
 
+    pwm0 {
+     pinctrl_pwm0_pwmh2: pwm0_pwmh2 {
+      atmel,pins =
+       <3 5 3 (0 << 0)>;
+     };
+    };
+
     spi0 {
      pinctrl_spi0: spi0-0 {
       atmel,pins =
@@ -1394,8 +1401,7 @@
   usb1: ohci@00600000 {
    num-ports = <3>;
    atmel,vbus-gpio = <&pioD 25 0
-        &pioD 26 1
-        &pioD 27 1
+        &pioD 26 0
        >;
    status = "okay";
   };
@@ -1536,6 +1542,8 @@
    };
 
    pwm0: pwm@f002c000 {
+    pinctrl-names = "default";
+    pinctrl-0 = <&pinctrl_pwm0_pwmh2>;
     status = "okay";
    };
   };

@@ -166,8 +166,7 @@
 		usb1: ohci@00600000 {
 			num-ports = <3>;
 			atmel,vbus-gpio = <&pioD 25 GPIO_ACTIVE_HIGH
-					   &pioD 26 GPIO_ACTIVE_LOW
-					   &pioD 27 GPIO_ACTIVE_LOW
+					   &pioD 26 GPIO_ACTIVE_HIGH
 					  >;
 			status = "okay";
 		};
