@@ -1323,6 +1323,7 @@
 0x00000000	rtc_time_to_tm	vmlinux	EXPORT_SYMBOL
 0x00000000	dmam_free_coherent	vmlinux	EXPORT_SYMBOL
 0x00000000	transport_setup_device	vmlinux	EXPORT_SYMBOL_GPL
+0x00000000	fb_find_logo	vmlinux	EXPORT_SYMBOL_GPL
 0x00000000	blk_queue_softirq_done	vmlinux	EXPORT_SYMBOL
 0x00000000	nfs_alloc_server	vmlinux	EXPORT_SYMBOL_GPL
 0x00000000	d_lookup	vmlinux	EXPORT_SYMBOL
