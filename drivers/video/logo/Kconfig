@@ -86,4 +86,8 @@ config LOGO_SDS_CLUT224
 	bool "224-color SDS Industries Logo"
 	default y
 
+config LOGO_EVENHEAT_CLUT224
+	bool "224-color Evenheat Logo"
+	default n
+
 endif # LOGO

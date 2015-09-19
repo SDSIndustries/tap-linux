@@ -104,6 +104,10 @@ const struct linux_logo * __init_refok fb_find_logo(int depth)
 		/*SDS Industries Logo */
 		logo = &logo_sdsIndustries_clut224;
 #endif
+#ifdef CONFIG_LOGO_EVENHEAT_CLUT224
+		/*EVENHEAT Logo */
+		logo = &logo_evenheat_clut224;
+#endif
 	}
 	return logo;
 }
