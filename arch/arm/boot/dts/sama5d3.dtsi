@@ -768,6 +768,11 @@
 						atmel,pins =
 							<AT91_PIOD 5 AT91_PERIPH_C AT91_PINCTRL_NONE>;
 					};
+					pinctrl_pwm0_pwmh3: pwm0_pwmh3 {
+						atmel,pins =
+							<AT91_PIOD 7 AT91_PERIPH_C AT91_PINCTRL_NONE>;
+					};
+
 				};
 
 				spi0 {

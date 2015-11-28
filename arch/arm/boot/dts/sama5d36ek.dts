@@ -51,7 +51,8 @@
 
 			pwm0: pwm@f002c000 {
 				pinctrl-names = "default";
-				pinctrl-0 = <&pinctrl_pwm0_pwmh2>;
+				pinctrl-0 = <&pinctrl_pwm0_pwmh2
+					     &pinctrl_pwm0_pwmh3>;
 				status = "okay";
 			};
 		};

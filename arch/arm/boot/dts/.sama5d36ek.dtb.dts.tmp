@@ -787,6 +787,11 @@
       atmel,pins =
        <3 5 3 (0 << 0)>;
      };
+     pinctrl_pwm0_pwmh3: pwm0_pwmh3 {
+      atmel,pins =
+       <3 7 3 (0 << 0)>;
+     };
+
     };
 
     spi0 {
@@ -1543,7 +1548,8 @@
 
    pwm0: pwm@f002c000 {
     pinctrl-names = "default";
-    pinctrl-0 = <&pinctrl_pwm0_pwmh2>;
+    pinctrl-0 = <&pinctrl_pwm0_pwmh2
+          &pinctrl_pwm0_pwmh3>;
     status = "okay";
    };
   };
