@@ -41,6 +41,11 @@
 	((le16_to_cpu(_pfwhdr->signature)&0xFFF0) == 0x92C0 ||\
 	(le16_to_cpu(_pfwhdr->signature)&0xFFF0) == 0x88C0)
 
+#define IS_81XXC_VENDOR_UMC_B_CUT(version)	\
+	((IS_CHIP_VENDOR_UMC(version)) ? \
+	((GET_CVID_CUT_VERSION(version) == \
+		CHIP_VENDOR_UMC_B_CUT) ? true : false) : false)
+
 struct rtl92c_firmware_header {
 	__le16 signature;
 	u8 category;
@@ -58,19 +63,6 @@ struct rtl92c_firmware_header {
 	__le32 rsvd3;
 	__le32 rsvd4;
 	__le32 rsvd5;
-};
-
-enum rtl8192c_h2c_cmd {
-	H2C_AP_OFFLOAD = 0,
-	H2C_SETPWRMODE = 1,
-	H2C_JOINBSSRPT = 2,
-	H2C_RSVDPAGE = 3,
-	H2C_RSSI_REPORT = 5,
-	H2C_RA_MASK = 6,
-	H2C_MACID_PS_MODE = 7,
-	H2C_P2P_PS_OFFLOAD = 8,
-	H2C_P2P_PS_CTW_CMD = 32,
-	MAX_H2CCMD
 };
 
 #define pagenum_128(_len)	(u32)(((_len)>>7) + ((_len)&0x7F ? 1 : 0))
@@ -95,7 +87,9 @@ void rtl92c_fill_h2c_cmd(struct ieee80211_hw *hw, u8 element_id,
 			 u32 cmd_len, u8 *p_cmdbuffer);
 void rtl92c_firmware_selfreset(struct ieee80211_hw *hw);
 void rtl92c_set_fw_pwrmode_cmd(struct ieee80211_hw *hw, u8 mode);
-void rtl92c_set_fw_rsvdpagepkt(struct ieee80211_hw *hw, bool b_dl_finished);
+void rtl92c_set_fw_rsvdpagepkt
+	(struct ieee80211_hw *hw,
+	 bool (*cmd_send_packet)(struct ieee80211_hw *, struct sk_buff *));
 void rtl92c_set_fw_joinbss_report_cmd(struct ieee80211_hw *hw, u8 mstatus);
 void usb_writeN_async(struct rtl_priv *rtlpriv, u32 addr, void *data, u16 len);
 void rtl92c_set_p2p_ps_offload_cmd(struct ieee80211_hw *hw, u8 p2p_ps_state);

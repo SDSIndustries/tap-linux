@@ -17,6 +17,8 @@ obj-$(CONFIG_LOGO_SUPERH_CLUT224)	+= logo_superh_clut224.o
 obj-$(CONFIG_LOGO_M32R_CLUT224)		+= logo_m32r_clut224.o
 obj-$(CONFIG_LOGO_SDS_CLUT224)		+= logo_sdsIndustries_clut224.o
 obj-$(CONFIG_LOGO_EVENHEAT_CLUT224)	+= logo_evenheat_clut224.o
+obj-$(CONFIG_LOGO_PARAGON_CLUT224)	+= logo_paragon_clut224.o
+obj-$(CONFIG_LOGO_ABR_CLUT224)		+= logo_abr_clut224.o
 obj-$(CONFIG_SPU_BASE)			+= logo_spe_clut224.o
 
 # How to generate logo's

@@ -108,6 +108,14 @@ const struct linux_logo * __init_refok fb_find_logo(int depth)
 		/*EVENHEAT Logo */
 		logo = &logo_evenheat_clut224;
 #endif
+#ifdef CONFIG_LOGO_PARAGON_CLUT224
+		/*Paragon Logo */
+		logo = &logo_paragon_clut224;
+#endif
+#ifdef CONFIG_LOGO_ABR_CLUT224
+		/*ABR Logo */
+		logo = &logo_abr_clut224;
+#endif
 	}
 	return logo;
 }

@@ -1,6 +1,3 @@
-obj-m := rtl8723ae.o
-
-
 rtl8723ae-objs :=		\
 		dm.o		\
 		fw.o		\
@@ -16,7 +13,8 @@ rtl8723ae-objs :=		\
 		table.o		\
 		trx.o		\
 
+obj-m += rtl8723ae.o
 
-obj-$(CONFIG_RTL8723AE) += rtl8723ae.o
+ccflags-y += -Idrivers/net/wireless/rtlwifi -D__CHECK_ENDIAN__
 
-ccflags-y += -D__CHECK_ENDIAN__
+

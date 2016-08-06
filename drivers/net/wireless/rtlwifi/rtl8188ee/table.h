@@ -1,6 +1,6 @@
 /******************************************************************************
  *
- * Copyright(c) 2009-2013  Realtek Corporation.
+ * Copyright(c) 2009-2010  Realtek Corporation.
  *
  * This program is free software; you can redistribute it and/or modify it
  * under the terms of version 2 of the GNU General Public License as
@@ -35,13 +35,13 @@
 #include <linux/types.h>
 #define  RTL8188EEPHY_REG_1TARRAYLEN	382
 extern u32 RTL8188EEPHY_REG_1TARRAY[];
-#define RTL8188EEPHY_REG_ARRAY_PGLEN	264
+#define RTL8188EEPHY_REG_ARRAY_PGLEN 264
 extern u32 RTL8188EEPHY_REG_ARRAY_PG[];
-#define	RTL8188EE_RADIOA_1TARRAYLEN	190
+#define	RTL8188EE_RADIOA_1TARRAYLEN 190
 extern u32 RTL8188EE_RADIOA_1TARRAY[];
-#define RTL8188EEMAC_1T_ARRAYLEN	180
+#define RTL8188EEMAC_1T_ARRAYLEN  180
 extern u32 RTL8188EEMAC_1T_ARRAY[];
-#define RTL8188EEAGCTAB_1TARRAYLEN	256
+#define RTL8188EEAGCTAB_1TARRAYLEN 256
 extern u32 RTL8188EEAGCTAB_1TARRAY[];
 
 #endif

@@ -17,6 +17,7 @@ kernel/crypto/des_generic.ko
 kernel/crypto/aes_generic.ko
 kernel/crypto/arc4.ko
 kernel/crypto/deflate.ko
+kernel/crypto/michael_mic.ko
 kernel/crypto/crc32c.ko
 kernel/crypto/lzo.ko
 kernel/crypto/rng.ko

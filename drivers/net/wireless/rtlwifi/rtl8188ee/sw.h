@@ -1,6 +1,6 @@
 /******************************************************************************
  *
- * Copyright(c) 2009-2013  Realtek Corporation.
+ * Copyright(c) 2009-2010  Realtek Corporation.
  *
  * This program is free software; you can redistribute it and/or modify it
  * under the terms of version 2 of the GNU General Public License as
@@ -32,5 +32,7 @@
 
 int rtl88e_init_sw_vars(struct ieee80211_hw *hw);
 void rtl88e_deinit_sw_vars(struct ieee80211_hw *hw);
+bool rtl88e_get_btc_status(void);
+
 
 #endif

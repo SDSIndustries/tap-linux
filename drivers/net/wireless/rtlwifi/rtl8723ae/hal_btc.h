@@ -1,6 +1,6 @@
 /******************************************************************************
  *
- * Copyright(c) 2009-2012  Realtek Corporation.
+ * Copyright(c) 2009-2010  Realtek Corporation.
  *
  * This program is free software; you can redistribute it and/or modify it
  * under the terms of version 2 of the GNU General Public License as
@@ -24,8 +24,7 @@
  * Hsinchu 300, Taiwan.
  * Larry Finger <Larry.Finger@lwfinger.net>
  *
- ****************************************************************************
- */
+ *****************************************************************************/
 
 #ifndef __RTL8723E_HAL_BTC_H__
 #define __RTL8723E_HAL_BTC_H__
@@ -34,19 +33,31 @@
 #include "btc.h"
 #include "hal_bt_coexist.h"
 
-#define	BT_TXRX_CNT_THRES_1		1200
-#define	BT_TXRX_CNT_THRES_2		1400
-#define	BT_TXRX_CNT_THRES_3		3000
-#define	BT_TXRX_CNT_LEVEL_0		0	/* < 1200 */
-#define	BT_TXRX_CNT_LEVEL_1		1	/* >= 1200 && < 1400 */
-#define	BT_TXRX_CNT_LEVEL_2		2	/* >= 1400 */
-#define	BT_TXRX_CNT_LEVEL_3		3
+#define	BT_TXRX_CNT_THRES_1				1200
+#define	BT_TXRX_CNT_THRES_2				1400
+#define	BT_TXRX_CNT_THRES_3				3000
+/* < 1200 */
+#define	BT_TXRX_CNT_LEVEL_0				0
+/* >= 1200 && < 1400 */
+#define	BT_TXRX_CNT_LEVEL_1				1
+/* >= 1400 */
+#define	BT_TXRX_CNT_LEVEL_2				2
+#define	BT_TXRX_CNT_LEVEL_3				3
+
+
+
+#define	BT_COEX_DISABLE		0
+#define	BT_Q_PKT_OFF		0
+#define	BT_Q_PKT_ON			1
+
+#define	BT_TX_PWR_OFF		0
+#define	BT_TX_PWR_ON		1
 
 /* TDMA mode definition */
-#define	TDMA_2ANT		0
-#define	TDMA_1ANT		1
+#define	TDMA_2ANT			0
+#define	TDMA_1ANT			1
 #define	TDMA_NAV_OFF		0
-#define	TDMA_NAV_ON		1
+#define	TDMA_NAV_ON			1
 #define	TDMA_DAC_SWING_OFF	0
 #define	TDMA_DAC_SWING_ON	1
 
@@ -80,6 +91,7 @@ enum bt_traffic_mode_profile {
 	BT_PROFILE_SCO
 };
 
+/*
 enum hci_ext_bt_operation {
 	HCI_BT_OP_NONE = 0x0,
 	HCI_BT_OP_INQUIRE_START	= 0x1,
@@ -93,6 +105,7 @@ enum hci_ext_bt_operation {
 	HCI_BT_OP_BT_DEV_DISABLE = 0x9,
 	HCI_BT_OP_MAX,
 };
+*/
 
 enum bt_spec {
 	BT_SPEC_1_0_b = 0x00,
@@ -123,12 +136,12 @@ enum bt_state {
 	BT_INFO_STATE_MAX = 7
 };
 
-enum rtl8723ae_c2h_evt {
+enum rtl8723e_c2h_evt {
 	C2H_DBG = 0,
 	C2H_TSF = 1,
 	C2H_AP_RPT_RSP = 2,
-	C2H_CCX_TX_RPT = 3,	/* The FW notify the report of the specific */
-				/* tx packet. */
+	/* The FW notify the report of the specific tx packet. */
+	C2H_CCX_TX_RPT = 3,
 	C2H_BT_RSSI = 4,
 	C2H_BT_OP_MODE = 5,
 	C2H_HW_INFO_EXCH = 10,
@@ -137,15 +150,17 @@ enum rtl8723ae_c2h_evt {
 	MAX_C2HEVENT
 };
 
-void rtl8723ae_dm_bt_fw_coex_all_off_8723a(struct ieee80211_hw *hw);
-void rtl8723ae_dm_bt_sw_coex_all_off_8723a(struct ieee80211_hw *hw);
-void rtl8723ae_dm_bt_hw_coex_all_off_8723a(struct ieee80211_hw *hw);
-void rtl8723ae_dm_bt_coexist_8723(struct ieee80211_hw *hw);
-void rtl8723ae_dm_bt_set_bt_dm(struct ieee80211_hw *hw,
-			      struct btdm_8723 *p_btdm);
+void rtl8723e_dm_bt_fw_coex_all_off_8723a(struct ieee80211_hw *hw);
+void rtl8723e_dm_bt_sw_coex_all_off_8723a(struct ieee80211_hw *hw);
+void rtl8723e_dm_bt_hw_coex_all_off_8723a(struct ieee80211_hw *hw);
+void rtl8723e_dm_bt_coexist_8723(struct ieee80211_hw *hw);
+void rtl8723e_dm_bt_set_bt_dm(struct ieee80211_hw *hw,
+				struct btdm_8723 *p_btdm);
 void rtl_8723e_c2h_command_handle(struct ieee80211_hw *hw);
 void rtl_8723e_bt_wifi_media_status_notify(struct ieee80211_hw *hw,
-					   bool mstatus);
-void rtl8723ae_bt_coex_off_before_lps(struct ieee80211_hw *hw);
+					bool mstatus);
+void rtl8723e_dm_bt_turn_off_bt_coexist_before_enter_lps(struct ieee80211_hw *hw);
+
+
 
 #endif

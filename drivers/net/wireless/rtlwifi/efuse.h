@@ -1,6 +1,6 @@
 /******************************************************************************
  *
- * Copyright(c) 2009-2012  Realtek Corporation.
+ * Copyright(c) 2009-2010  Realtek Corporation.
  *
  * This program is free software; you can redistribute it and/or modify it
  * under the terms of version 2 of the GNU General Public License as
@@ -32,7 +32,14 @@
 
 #define EFUSE_IC_ID_OFFSET		506
 
+/*
+#define EFUSE_REAL_CONTENT_LEN	512
 #define EFUSE_MAP_LEN			128
+#define EFUSE_MAX_SECTION		16
+#define EFUSE_MAX_WORD_UNIT		4
+#define EFUSE_IC_ID_OFFSET		506
+*/
+
 #define EFUSE_MAX_WORD_UNIT		4
 
 #define EFUSE_INIT_MAP			0
@@ -107,6 +114,7 @@ struct efuse_priv {
 extern void read_efuse_byte(struct ieee80211_hw *hw, u16 _offset, u8 *pbuf);
 extern void efuse_initialize(struct ieee80211_hw *hw);
 extern u8 efuse_read_1byte(struct ieee80211_hw *hw, u16 address);
+extern int efuse_one_byte_read(struct ieee80211_hw *hw, u16 addr, u8 *data);
 extern void efuse_write_1byte(struct ieee80211_hw *hw, u16 address, u8 value);
 extern void read_efuse(struct ieee80211_hw *hw, u16 _offset,
 		       u16 _size_byte, u8 *pbuf);
@@ -117,7 +125,10 @@ extern void efuse_shadow_write(struct ieee80211_hw *hw, u8 type,
 extern bool efuse_shadow_update(struct ieee80211_hw *hw);
 extern bool efuse_shadow_update_chk(struct ieee80211_hw *hw);
 extern void rtl_efuse_shadow_map_update(struct ieee80211_hw *hw);
-extern void efuse_force_write_vendor_Id(struct ieee80211_hw *hw);
-extern void efuse_re_pg_section(struct ieee80211_hw *hw, u8 section_idx);
+
+void efuse_force_write_vendor_Id(struct ieee80211_hw *hw);
+void efuse_re_pg_section(struct ieee80211_hw *hw, u8 section_idx);
+int rtl_get_hwinfo(struct ieee80211_hw *hw, struct rtl_priv *rtlpriv,
+		   int max_size, u8 *hwinfo, int *params);
 
 #endif

@@ -38,9 +38,6 @@
 #define CHIP_VENDOR_UMC			BIT(5)
 #define CHIP_VENDOR_UMC_B_CUT		BIT(6)
 
-#define IS_NORMAL_CHIP(version)		\
-	(((version) & NORMAL_CHIP) ? true : false)
-
 #define IS_8723_SERIES(version)		\
 	(((version) & CHIP_8723) ? true : false)
 
@@ -55,4 +52,3 @@
 	false : true) : false)
 
 #define CHIP_BONDING_92C_1T2R	0x1
-#define CHIP_BONDING_IDENTIFIER(_value)	(((_value) >> 22) & 0x3)

@@ -21,6 +21,8 @@ deps_drivers/video/logo/logo.o := \
     $(wildcard include/config/logo/m32r/clut224.h) \
     $(wildcard include/config/logo/sds/clut224.h) \
     $(wildcard include/config/logo/evenheat/clut224.h) \
+    $(wildcard include/config/logo/paragon/clut224.h) \
+    $(wildcard include/config/logo/abr/clut224.h) \
   include/linux/linux_logo.h \
     $(wildcard include/config/fb/logo/extra.h) \
   include/linux/init.h \

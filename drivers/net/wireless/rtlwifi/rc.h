@@ -1,6 +1,6 @@
 /******************************************************************************
  *
- * Copyright(c) 2009-2012  Realtek Corporation.
+ * Copyright(c) 2009-2010  Realtek Corporation.
  *
  * This program is free software; you can redistribute it and/or modify it
  * under the terms of version 2 of the GNU General Public License as
@@ -37,6 +37,10 @@
 /* in mac80211 mcs0-mcs15 is idx0-idx15*/
 #define N_MODE_MCS7_RIX 7
 #define N_MODE_MCS15_RIX 15
+
+#define AC_MODE_MCS7_RIX 7
+#define AC_MODE_MCS8_RIX 8
+#define AC_MODE_MCS9_RIX 9
 
 struct rtl_rate_priv {
 	u8 ht_cap;

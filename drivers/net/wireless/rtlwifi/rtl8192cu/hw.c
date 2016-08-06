@@ -36,8 +36,11 @@
 #include "reg.h"
 #include "def.h"
 #include "phy.h"
+#include "../rtl8192c/phy_common.h"
 #include "mac.h"
 #include "dm.h"
+#include "../rtl8192c/dm_common.h"
+#include "../rtl8192c/fw_common.h"
 #include "hw.h"
 #include "../rtl8192ce/hw.h"
 #include "trx.h"
@@ -180,7 +183,7 @@ static void _rtl92cu_read_txpower_info_from_hwpg(struct ieee80211_hw *hw,
 				eprom_chnl_txpwr_ht40_2sdf[rf_path][i]);
 	for (rf_path = 0; rf_path < 2; rf_path++) {
 		for (i = 0; i < 14; i++) {
-			index = _rtl92c_get_chnl_group((u8) i);
+			index = _rtl92c_get_chnl_group((u8)i);
 			rtlefuse->txpwrlevel_cck[rf_path][i] =
 			    rtlefuse->eeprom_chnlarea_txpwr_cck[rf_path][index];
 			rtlefuse->txpwrlevel_ht40_1s[rf_path][i] =
@@ -222,7 +225,7 @@ static void _rtl92cu_read_txpower_info_from_hwpg(struct ieee80211_hw *hw,
 	}
 	for (rf_path = 0; rf_path < 2; rf_path++) {
 		for (i = 0; i < 14; i++) {
-			index = _rtl92c_get_chnl_group((u8) i);
+			index = _rtl92c_get_chnl_group((u8)i);
 			if (rf_path == RF90_PATH_A) {
 				rtlefuse->pwrgroup_ht20[rf_path][i] =
 				    (rtlefuse->eeprom_pwrlimit_ht20[index]
@@ -249,7 +252,7 @@ static void _rtl92cu_read_txpower_info_from_hwpg(struct ieee80211_hw *hw,
 		}
 	}
 	for (i = 0; i < 14; i++) {
-		index = _rtl92c_get_chnl_group((u8) i);
+		index = _rtl92c_get_chnl_group((u8)i);
 		if (!autoload_fail)
 			tempval = hwinfo[EEPROM_TXPOWERHT20DIFF + index];
 		else
@@ -261,7 +264,7 @@ static void _rtl92cu_read_txpower_info_from_hwpg(struct ieee80211_hw *hw,
 			rtlefuse->txpwr_ht20diff[RF90_PATH_A][i] |= 0xF0;
 		if (rtlefuse->txpwr_ht20diff[RF90_PATH_B][i] & BIT(3))
 			rtlefuse->txpwr_ht20diff[RF90_PATH_B][i] |= 0xF0;
-		index = _rtl92c_get_chnl_group((u8) i);
+		index = _rtl92c_get_chnl_group((u8)i);
 		if (!autoload_fail)
 			tempval = hwinfo[EEPROM_TXPOWER_OFDMDIFF + index];
 		else
@@ -344,57 +347,31 @@ static void _rtl92cu_read_adapter_info(struct ieee80211_hw *hw)
 	struct rtl_priv *rtlpriv = rtl_priv(hw);
 	struct rtl_efuse *rtlefuse = rtl_efuse(rtl_priv(hw));
 	struct rtl_hal *rtlhal = rtl_hal(rtl_priv(hw));
-	u16 i, usvalue;
-	u8 hwinfo[HWSET_MAX_SIZE] = {0};
-	u16 eeprom_id;
+	int params[] = {RTL8190_EEPROM_ID, EEPROM_VID, EEPROM_DID,
+			EEPROM_SVID, EEPROM_SMID, EEPROM_MAC_ADDR,
+			EEPROM_CHANNELPLAN, EEPROM_VERSION, EEPROM_CUSTOMER_ID,
+			0};
+	u8 *hwinfo;
 
-	if (rtlefuse->epromtype == EEPROM_BOOT_EFUSE) {
-		rtl_efuse_shadow_map_update(hw);
-		memcpy((void *)hwinfo,
-		       (void *)&rtlefuse->efuse_map[EFUSE_INIT_MAP][0],
-		       HWSET_MAX_SIZE);
-	} else if (rtlefuse->epromtype == EEPROM_93C46) {
-		RT_TRACE(rtlpriv, COMP_ERR, DBG_EMERG,
-			 "RTL819X Not boot from eeprom, check it !!\n");
-	}
-	RT_PRINT_DATA(rtlpriv, COMP_INIT, DBG_LOUD, "MAP",
-		      hwinfo, HWSET_MAX_SIZE);
-	eeprom_id = le16_to_cpu(*((__le16 *)&hwinfo[0]));
-	if (eeprom_id != RTL8190_EEPROM_ID) {
-		RT_TRACE(rtlpriv, COMP_ERR, DBG_EMERG,
-			 "EEPROM ID(%#x) is invalid!!\n", eeprom_id);
-		rtlefuse->autoload_failflag = true;
-	} else {
-		RT_TRACE(rtlpriv, COMP_INIT, DBG_LOUD, "Autoload OK\n");
-		rtlefuse->autoload_failflag = false;
-	}
-	if (rtlefuse->autoload_failflag)
+	hwinfo = kzalloc(HWSET_MAX_SIZE, GFP_KERNEL);
+	if (!hwinfo)
 		return;
-	for (i = 0; i < 6; i += 2) {
-		usvalue = *(u16 *)&hwinfo[EEPROM_MAC_ADDR + i];
-		*((u16 *) (&rtlefuse->dev_addr[i])) = usvalue;
-	}
-	pr_info("MAC address: %pM\n", rtlefuse->dev_addr);
+
+	if (rtl_get_hwinfo(hw, rtlpriv, HWSET_MAX_SIZE, hwinfo, params))
+		goto exit;
+
 	_rtl92cu_read_txpower_info_from_hwpg(hw,
 					   rtlefuse->autoload_failflag, hwinfo);
-	rtlefuse->eeprom_vid = le16_to_cpu(*(__le16 *)&hwinfo[EEPROM_VID]);
-	rtlefuse->eeprom_did = le16_to_cpu(*(__le16 *)&hwinfo[EEPROM_DID]);
-	RT_TRACE(rtlpriv, COMP_INIT, DBG_DMESG, " VID = 0x%02x PID = 0x%02x\n",
-		 rtlefuse->eeprom_vid, rtlefuse->eeprom_did);
-	rtlefuse->eeprom_channelplan = hwinfo[EEPROM_CHANNELPLAN];
-	rtlefuse->eeprom_version =
-			 le16_to_cpu(*(__le16 *)&hwinfo[EEPROM_VERSION]);
+	_rtl92cu_read_board_type(hw, hwinfo);
+
 	rtlefuse->txpwr_fromeprom = true;
-	rtlefuse->eeprom_oemid = hwinfo[EEPROM_CUSTOMER_ID];
-	RT_TRACE(rtlpriv, COMP_INIT, DBG_LOUD, "EEPROM Customer ID: 0x%2x\n",
-		 rtlefuse->eeprom_oemid);
 	if (rtlhal->oem_id == RT_CID_DEFAULT) {
 		switch (rtlefuse->eeprom_oemid) {
 		case EEPROM_CID_DEFAULT:
 			if (rtlefuse->eeprom_did == 0x8176) {
 				if ((rtlefuse->eeprom_svid == 0x103C &&
 				     rtlefuse->eeprom_smid == 0x1629))
-					rtlhal->oem_id = RT_CID_819x_HP;
+					rtlhal->oem_id = RT_CID_819X_HP;
 				else
 					rtlhal->oem_id = RT_CID_DEFAULT;
 			} else {
@@ -405,7 +382,7 @@ static void _rtl92cu_read_adapter_info(struct ieee80211_hw *hw)
 			rtlhal->oem_id = RT_CID_TOSHIBA;
 			break;
 		case EEPROM_CID_QMI:
-			rtlhal->oem_id = RT_CID_819x_QMI;
+			rtlhal->oem_id = RT_CID_819X_QMI;
 			break;
 		case EEPROM_CID_WHQL:
 		default:
@@ -413,7 +390,8 @@ static void _rtl92cu_read_adapter_info(struct ieee80211_hw *hw)
 			break;
 		}
 	}
-	_rtl92cu_read_board_type(hw, hwinfo);
+exit:
+	kfree(hwinfo);
 }
 
 static void _rtl92cu_hal_customized_behavior(struct ieee80211_hw *hw)
@@ -423,14 +401,14 @@ static void _rtl92cu_hal_customized_behavior(struct ieee80211_hw *hw)
 	struct rtl_hal *rtlhal = rtl_hal(rtl_priv(hw));
 
 	switch (rtlhal->oem_id) {
-	case RT_CID_819x_HP:
+	case RT_CID_819X_HP:
 		usb_priv->ledctl.led_opendrain = true;
 		break;
-	case RT_CID_819x_Lenovo:
+	case RT_CID_819X_LENOVO:
 	case RT_CID_DEFAULT:
 	case RT_CID_TOSHIBA:
 	case RT_CID_CCX:
-	case RT_CID_819x_Acer:
+	case RT_CID_819X_ACER:
 	case RT_CID_WHQL:
 	default:
 		break;
@@ -511,7 +489,7 @@ static int _rtl92cu_init_power_on(struct ieee80211_hw *hw)
 			pr_info("MAC auto ON okay!\n");
 			break;
 		}
-		if (pollingCount++ > 100) {
+		if (pollingCount++ > 1000) {
 			RT_TRACE(rtlpriv, COMP_INIT, DBG_EMERG,
 				 "Failed to polling REG_APS_FSMCO[APFM_ONMAC] done!\n");
 			return -ENODEV;
@@ -985,20 +963,33 @@ int rtl92cu_hw_init(struct ieee80211_hw *hw)
 	struct rtl_ps_ctl *ppsc = rtl_psc(rtl_priv(hw));
 	int err = 0;
 	static bool iqk_initialized;
+	unsigned long flags;
 
+	/* As this function can take a very long time (up to 350 ms)
+	 * and can be called with irqs disabled, reenable the irqs
+	 * to let the other devices continue being serviced.
+	 *
+	 * It is safe doing so since our own interrupts will only be enabled
+	 * in a subsequent step.
+	 */
+	local_save_flags(flags);
+	local_irq_enable();
+
+	rtlhal->fw_ready = false;
 	rtlhal->hw_type = HARDWARE_TYPE_RTL8192CU;
 	err = _rtl92cu_init_mac(hw);
 	if (err) {
 		RT_TRACE(rtlpriv, COMP_ERR, DBG_EMERG, "init mac failed!\n");
-		return err;
+		goto exit;
 	}
 	err = rtl92c_download_fw(hw);
 	if (err) {
 		RT_TRACE(rtlpriv, COMP_ERR, DBG_WARNING,
 			 "Failed to download FW. Init HW without FW now..\n");
 		err = 1;
-		return err;
+		goto exit;
 	}
+	rtlhal->fw_ready = true;
 	rtlhal->last_hmeboxnum = 0; /* h2c */
 	_rtl92cu_phy_param_tab_init(hw);
 	rtl92cu_phy_mac_config(hw);
@@ -1022,7 +1013,7 @@ int rtl92cu_hw_init(struct ieee80211_hw *hw)
 	if (ppsc->rfpwr_state == ERFON) {
 		rtl92c_phy_set_rfpath_switch(hw, 1);
 		if (iqk_initialized) {
-			rtl92c_phy_iq_calibrate(hw, false);
+			rtl92c_phy_iq_calibrate(hw, true);
 		} else {
 			rtl92c_phy_iq_calibrate(hw, false);
 			iqk_initialized = true;
@@ -1034,6 +1025,8 @@ int rtl92cu_hw_init(struct ieee80211_hw *hw)
 	_InitPABias(hw);
 	_update_mac_setting(hw);
 	rtl92c_dm_init(hw);
+exit:
+	local_irq_restore(flags);
 	return err;
 }
 
@@ -1156,13 +1149,13 @@ n. LEDCFG 0x4C[15:0] = 0x8080
 	/* 1. Disable GPIO[7:0] */
 	rtl_write_word(rtlpriv, REG_GPIO_PIN_CTRL+2, 0x0000);
 	value32 = rtl_read_dword(rtlpriv, REG_GPIO_PIN_CTRL) & 0xFFFF00FF;
-	value8 = (u8) (value32&0x000000FF);
+	value8 = (u8)(value32&0x000000FF);
 	value32 |= ((value8<<8) | 0x00FF0000);
 	rtl_write_dword(rtlpriv, REG_GPIO_PIN_CTRL, value32);
 	/* 2. Disable GPIO[10:8] */
 	rtl_write_byte(rtlpriv, REG_GPIO_MUXCFG+3, 0x00);
 	value16 = rtl_read_word(rtlpriv, REG_GPIO_MUXCFG+2) & 0xFF0F;
-	value8 = (u8) (value16&0x000F);
+	value8 = (u8)(value16&0x000F);
 	value16 |= ((value8<<4) | 0x0780);
 	rtl_write_word(rtlpriv, REG_GPIO_PIN_CTRL+2, value16);
 	/* 3. Disable LED0 & 1 */
@@ -1232,7 +1225,7 @@ static void _rtl92cu_set_bcn_ctrl_reg(struct ieee80211_hw *hw,
 
 	rtlusb->reg_bcn_ctrl_val |= set_bits;
 	rtlusb->reg_bcn_ctrl_val &= ~clear_bits;
-	rtl_write_byte(rtlpriv, REG_BCN_CTRL, (u8) rtlusb->reg_bcn_ctrl_val);
+	rtl_write_byte(rtlpriv, REG_BCN_CTRL, (u8)rtlusb->reg_bcn_ctrl_val);
 }
 
 static void _rtl92cu_stop_tx_beacon(struct ieee80211_hw *hw)
@@ -1347,7 +1340,7 @@ static int _rtl92cu_set_media_status(struct ieee80211_hw *hw,
 	}
 	rtl_write_byte(rtlpriv, (MSR), bt_msr);
 	rtlpriv->cfg->ops->led_control(hw, ledaction);
-	if ((bt_msr & 0xfc) == MSR_AP)
+	if ((bt_msr & MSR_MASK) == MSR_AP)
 		rtl_write_byte(rtlpriv, REG_BCNTCFG + 1, 0x00);
 	else
 		rtl_write_byte(rtlpriv, REG_BCNTCFG + 1, 0x66);
@@ -1379,10 +1372,12 @@ void rtl92cu_set_check_bssid(struct ieee80211_hw *hw, bool check_bssid)
 {
 	struct rtl_priv *rtlpriv = rtl_priv(hw);
 	struct rtl_hal *rtlhal = rtl_hal(rtlpriv);
-	u32 reg_rcr = rtl_read_dword(rtlpriv, REG_RCR);
+	u32 reg_rcr;
 
 	if (rtlpriv->psc.rfpwr_state != ERFON)
 		return;
+
+	rtlpriv->cfg->ops->get_hw_reg(hw, HW_VAR_RCR, (u8 *)(&reg_rcr));
 
 	if (check_bssid) {
 		u8 tmp;
@@ -1572,6 +1567,20 @@ void rtl92cu_get_hw_reg(struct ieee80211_hw *hw, u8 variable, u8 *val)
 			 "switch case not processed\n");
 		break;
 	}
+}
+
+static bool usb_cmd_send_packet(struct ieee80211_hw *hw, struct sk_buff *skb)
+{
+  /* Currently nothing happens here.
+   * Traffic stops after some seconds in WPA2 802.11n mode.
+   * Maybe because rtl8192cu chip should be set from here?
+   * If I understand correctly, the realtek vendor driver sends some urbs
+   * if its "here".
+   *
+   * This is maybe necessary:
+   * rtlpriv->cfg->ops->fill_tx_cmddesc(hw, buffer, 1, 1, skb);
+   */
+	return true;
 }
 
 void rtl92cu_set_hw_reg(struct ieee80211_hw *hw, u8 variable, u8 *val)
@@ -1795,7 +1804,7 @@ void rtl92cu_set_hw_reg(struct ieee80211_hw *hw, u8 variable, u8 *val)
 					  e_aci);
 				break;
 			}
-			if (rtlusb->acm_method != eAcmWay2_SW)
+			if (rtlusb->acm_method != EACMWAY2_SW)
 				rtlpriv->cfg->ops->set_hw_reg(hw,
 					 HW_VAR_ACM_CTRL, &e_aci);
 			break;
@@ -1835,7 +1844,7 @@ void rtl92cu_set_hw_reg(struct ieee80211_hw *hw, u8 variable, u8 *val)
 					acm_ctrl &= (~AcmHw_ViqEn);
 					break;
 				case AC3_VO:
-					acm_ctrl &= (~AcmHw_BeqEn);
+					acm_ctrl &= (~AcmHw_VoqEn);
 					break;
 				default:
 					RT_TRACE(rtlpriv, COMP_ERR, DBG_EMERG,
@@ -1921,7 +1930,8 @@ void rtl92cu_set_hw_reg(struct ieee80211_hw *hw, u8 variable, u8 *val)
 					recover = true;
 				rtl_write_byte(rtlpriv, REG_FWHW_TXQ_CTRL + 2,
 					       tmp_reg422 & (~BIT(6)));
-				rtl92c_set_fw_rsvdpagepkt(hw, 0);
+				rtl92c_set_fw_rsvdpagepkt(hw,
+							  &usb_cmd_send_packet);
 				_rtl92cu_set_bcn_ctrl_reg(hw, BIT(3), 0);
 				_rtl92cu_set_bcn_ctrl_reg(hw, 0, BIT(4));
 				if (recover)
@@ -2240,7 +2250,6 @@ bool rtl92cu_gpio_radio_on_off_checking(struct ieee80211_hw *hw, u8 * valid)
 {
 	struct rtl_priv *rtlpriv = rtl_priv(hw);
 	struct rtl_ps_ctl *ppsc = rtl_psc(rtl_priv(hw));
-	struct rtl_hal *rtlhal = rtl_hal(rtl_priv(hw));
 	enum rf_pwrstate e_rfpowerstate_toset, cur_rfstate;
 	u8 u1tmp = 0;
 	bool actuallyset = false;
@@ -2317,20 +2326,7 @@ bool rtl92cu_gpio_radio_on_off_checking(struct ieee80211_hw *hw, u8 * valid)
 		if (ppsc->pwrdown_mode && e_rfpowerstate_toset == ERFOFF) {
 			/* Enable register area 0x0-0xc. */
 			rtl_write_byte(rtlpriv, REG_RSV_CTRL, 0x0);
-			if (IS_HARDWARE_TYPE_8723U(rtlhal)) {
-				/*
-				 * We should configure HW PDn source for WiFi
-				 * ONLY, and then our HW will be set in
-				 * power-down mode if PDn source from all
-				 * functions are configured.
-				 */
-				u1tmp = rtl_read_byte(rtlpriv,
-						      REG_MULTI_FUNC_CTRL);
-				rtl_write_byte(rtlpriv, REG_MULTI_FUNC_CTRL,
-					       (u1tmp|WL_HWPDN_EN));
-			} else {
-				rtl_write_word(rtlpriv, REG_APS_FSMCO, 0x8812);
-			}
+			rtl_write_word(rtlpriv, REG_APS_FSMCO, 0x8812);
 		}
 		if (e_rfpowerstate_toset == ERFOFF) {
 			if (ppsc->reg_rfps_level  & RT_RF_OFF_LEVL_ASPM)

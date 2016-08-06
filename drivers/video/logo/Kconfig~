@@ -88,6 +88,10 @@ config LOGO_SDS_CLUT224
 
 config LOGO_EVENHEAT_CLUT224
 	bool "224-color Evenheat Logo"
-	default y
+	default n
+
+config LOGO_PARAGON_CLUT224
+	bool "224-color Paragon Logo"
+	default n
 
 endif # LOGO

@@ -1,6 +1,6 @@
 /******************************************************************************
  *
- * Copyright(c) 2009-2013  Realtek Corporation.
+ * Copyright(c) 2009-2010  Realtek Corporation.
  *
  * This program is free software; you can redistribute it and/or modify it
  * under the terms of version 2 of the GNU General Public License as
@@ -30,7 +30,6 @@
  *****************************************************************************/
 
 #include "table.h"
-
 u32 RTL8188EEPHY_REG_1TARRAY[] = {
 		0x800, 0x80040000,
 		0x804, 0x00000003,
@@ -355,7 +354,11 @@ u32 RTL8188EE_RADIOA_1TARRAY[] = {
 		0x0DF, 0x00000180,
 		0x0EF, 0x000001A0,
 		0x051, 0x0006B27D,
+	/*0xFF0F041F, 0xABCD,
+		0x052, 0x0007E4DD,
+	0xCDCDCDCD, 0xCDCD,*/
 		0x052, 0x0007E49D,
+	/*0xFF0F041F, 0xDEAD,*/
 		0x053, 0x00000073,
 		0x056, 0x00051FF3,
 		0x035, 0x00000086,
@@ -640,4 +643,5 @@ u32 RTL8188EEAGCTAB_1TARRAY[] = {
 		0xC78, 0x407D0001,
 		0xC78, 0x407E0001,
 		0xC78, 0x407F0001,
+
 };

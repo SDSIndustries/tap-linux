@@ -1,6 +1,6 @@
 /******************************************************************************
  *
- * Copyright(c) 2009-2012  Realtek Corporation.
+ * Copyright(c) 2009-2010  Realtek Corporation.
  *
  * This program is free software; you can redistribute it and/or modify it
  * under the terms of version 2 of the GNU General Public License as
@@ -28,7 +28,9 @@
  *****************************************************************************/
 #include "wifi.h"
 #include "stats.h"
+#if (LINUX_VERSION_CODE >= KERNEL_VERSION(3,2,0))
 #include <linux/export.h>
+#endif
 
 u8 rtl_query_rxpwrpercentage(char antpower)
 {
@@ -59,8 +61,24 @@ u8 rtl_evm_db_to_percentage(char value)
 }
 EXPORT_SYMBOL(rtl_evm_db_to_percentage);
 
+u8 rtl_evm_dbm_jaguar(char value)
+{
+	char ret_val;
+	ret_val = value;
+
+	/* -33dB~0dB to 33dB ~ 0dB*/
+	if (ret_val == -128)
+		ret_val = 127;
+	else if (ret_val < 0)
+		ret_val = 0 - ret_val;
+
+	ret_val  = ret_val >> 1;
+	return ret_val;
+}
+EXPORT_SYMBOL(rtl_evm_dbm_jaguar);
+
 static long rtl_translate_todbm(struct ieee80211_hw *hw,
-				u8 signal_strength_index)
+			 u8 signal_strength_index)
 {
 	long signal_power;
 
@@ -98,14 +116,17 @@ long rtl_signal_scale_mapping(struct ieee80211_hw *hw, long currsig)
 }
 EXPORT_SYMBOL(rtl_signal_scale_mapping);
 
-static void rtl_process_ui_rssi(struct ieee80211_hw *hw,
-				struct rtl_stats *pstatus)
+static void rtl_process_ui_rssi(struct ieee80211_hw *hw, struct rtl_stats *pstatus)
 {
 	struct rtl_priv *rtlpriv = rtl_priv(hw);
 	struct rtl_phy *rtlphy = &(rtlpriv->phy);
 	u8 rfpath;
 	u32 last_rssi, tmpval;
 
+	if (!pstatus->packet_toself && !pstatus->packet_beacon)
+		return;
+
+	rtlpriv->stats.pwdb_all_cnt += pstatus->rx_pwdb_all;
 	rtlpriv->stats.rssi_calculate_cnt++;
 
 	if (rtlpriv->stats.ui_rssi.total_num++ >= PHY_RSSI_SLID_WIN_MAX) {
@@ -151,6 +172,12 @@ static void rtl_process_ui_rssi(struct ieee80211_hw *hw,
 			     (pstatus->rx_mimo_signalstrength[rfpath])) /
 			    (RX_SMOOTH_FACTOR);
 		}
+		rtlpriv->stats.rx_snr_db[rfpath] = pstatus->rx_snr[rfpath];
+		rtlpriv->stats.rx_evm_dbm[rfpath] =
+					pstatus->rx_mimo_evm_dbm[rfpath];
+		rtlpriv->stats.rx_cfo_short[rfpath] =
+					pstatus->cfo_short[rfpath];
+		rtlpriv->stats.rx_cfo_tail[rfpath] = pstatus->cfo_tail[rfpath];
 	}
 }
 
@@ -197,7 +224,8 @@ static void rtl_process_pwdb(struct ieee80211_hw *hw, struct rtl_stats *pstatus)
 		     (pstatus->rx_pwdb_all)) / (RX_SMOOTH_FACTOR);
 		undec_sm_pwdb = undec_sm_pwdb + 1;
 	} else {
-		undec_sm_pwdb = (((undec_sm_pwdb) * (RX_SMOOTH_FACTOR - 1)) +
+		undec_sm_pwdb = (((undec_sm_pwdb) *
+		      (RX_SMOOTH_FACTOR - 1)) +
 		     (pstatus->rx_pwdb_all)) / (RX_SMOOTH_FACTOR);
 	}
 
@@ -231,7 +259,7 @@ static void rtl_process_ui_link_quality(struct ieee80211_hw *hw,
 	rtlpriv->stats.ui_link_quality.total_val += pstatus->signalquality;
 	rtlpriv->stats.ui_link_quality.elements[
 		rtlpriv->stats.ui_link_quality.index++] =
-						 pstatus->signalquality;
+							pstatus->signalquality;
 	if (rtlpriv->stats.ui_link_quality.index >=
 	    PHY_LINKQUALITY_SLID_WIN_MAX)
 		rtlpriv->stats.ui_link_quality.index = 0;
@@ -240,22 +268,22 @@ static void rtl_process_ui_link_quality(struct ieee80211_hw *hw,
 	rtlpriv->stats.signal_quality = tmpval;
 	rtlpriv->stats.last_sigstrength_inpercent = tmpval;
 	for (n_stream = 0; n_stream < 2; n_stream++) {
-		if (pstatus->rx_mimo_sig_qual[n_stream] != -1) {
+		if (pstatus->rx_mimo_signalquality[n_stream] != -1) {
 			if (rtlpriv->stats.rx_evm_percentage[n_stream] == 0) {
 				rtlpriv->stats.rx_evm_percentage[n_stream] =
-				    pstatus->rx_mimo_sig_qual[n_stream];
+				    pstatus->rx_mimo_signalquality[n_stream];
 			}
 			rtlpriv->stats.rx_evm_percentage[n_stream] =
 			    ((rtlpriv->stats.rx_evm_percentage[n_stream]
 			      * (RX_SMOOTH_FACTOR - 1)) +
-			     (pstatus->rx_mimo_sig_qual[n_stream] * 1)) /
+			     (pstatus->rx_mimo_signalquality[n_stream] * 1)) /
 			    (RX_SMOOTH_FACTOR);
 		}
 	}
 }
 
 void rtl_process_phyinfo(struct ieee80211_hw *hw, u8 *buffer,
-	struct rtl_stats *pstatus)
+			 struct rtl_stats *pstatus)
 {
 
 	if (!pstatus->packet_matchbssid)

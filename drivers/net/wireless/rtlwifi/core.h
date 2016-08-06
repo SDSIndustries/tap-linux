@@ -1,6 +1,6 @@
 /******************************************************************************
  *
- * Copyright(c) 2009-2012  Realtek Corporation.
+ * Copyright(c) 2009-2010  Realtek Corporation.
  *
  * Tmis program is free software; you can redistribute it and/or modify it
  * under the terms of version 2 of the GNU General Public License as
@@ -30,16 +30,28 @@
 #ifndef __RTL_CORE_H__
 #define __RTL_CORE_H__
 
+#if (LINUX_VERSION_CODE < KERNEL_VERSION(4, 1, 0))
 #define RTL_SUPPORTED_FILTERS		\
-	(FIF_PROMISC_IN_BSS | \
-	FIF_ALLMULTI | FIF_CONTROL | \
+	(FIF_ALLMULTI | FIF_CONTROL | \
 	FIF_OTHER_BSS | \
 	FIF_FCSFAIL | \
 	FIF_BCN_PRBRESP_PROMISC)
+#else
+#define RTL_SUPPORTED_FILTERS		\
+	( FIF_ALLMULTI | FIF_CONTROL | \
+	FIF_OTHER_BSS | \
+	FIF_FCSFAIL | \
+	FIF_BCN_PRBRESP_PROMISC)
+#endif
 
 #define RTL_SUPPORTED_CTRL_FILTER	0xFF
 
 extern const struct ieee80211_ops rtl_ops;
 void rtl_fw_cb(const struct firmware *firmware, void *context);
+void rtl_addr_delay(u32 addr);
+void rtl_rfreg_delay(struct ieee80211_hw *hw, enum radio_path rfpath, u32 addr,
+		     u32 mask, u32 data);
+void rtl_bb_delay(struct ieee80211_hw *hw, u32 addr, u32 data);
+bool rtl_cmd_send_packet(struct ieee80211_hw *hw, struct sk_buff *skb);
 
 #endif

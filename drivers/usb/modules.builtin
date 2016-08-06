@@ -1,5 +1,6 @@
 kernel/drivers/usb/usb-common.ko
 kernel/drivers/usb/class/cdc-acm.ko
+kernel/drivers/usb/class/cdc-wdm.ko
 kernel/drivers/usb/core/usbcore.ko
 kernel/drivers/usb/gadget/udc-core.ko
 kernel/drivers/usb/gadget/atmel_usba_udc.ko

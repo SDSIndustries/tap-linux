@@ -12,3 +12,5 @@ rtl8192cu-objs :=		\
 obj-$(CONFIG_RTL8192CU) += rtl8192cu.o
 
 ccflags-y += -D__CHECK_ENDIAN__
+
+

@@ -509,6 +509,7 @@ deps_config := \
 	drivers/net/wan/Kconfig \
 	drivers/net/wimax/i2400m/Kconfig \
 	drivers/net/wimax/Kconfig \
+	drivers/net/wireless/rtl8192/Kconfig \
 	drivers/net/wireless/mwifiex/Kconfig \
 	drivers/net/wireless/zd1211rw/Kconfig \
 	drivers/net/wireless/ti/wlcore/Kconfig \

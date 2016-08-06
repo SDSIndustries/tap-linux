@@ -1,5 +1,6 @@
 rtl8192ce-objs :=		\
 		dm.o		\
+		fw.o		\
 		hw.o		\
 		led.o		\
 		phy.o		\
@@ -8,6 +9,7 @@ rtl8192ce-objs :=		\
 		table.o		\
 		trx.o
 
-obj-$(CONFIG_RTL8192CE) += rtl8192ce.o
+obj-m += rtl8192ce.o
 
-ccflags-y += -D__CHECK_ENDIAN__
+ccflags-y += -Idrivers/net/wireless/rtlwifi -D__CHECK_ENDIAN__
+
