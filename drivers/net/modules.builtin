@@ -3,7 +3,4 @@ kernel/drivers/net/ethernet/cadence/macb.ko
 kernel/drivers/net/phy/libphy.ko
 kernel/drivers/net/phy/micrel.ko
 kernel/drivers/net/wireless/hostap/hostap.ko
-kernel/drivers/net/wireless/rtl8192/8192eu.ko
-kernel/drivers/net/wireless/rtlwifi/rtlwifi.ko
-kernel/drivers/net/wireless/rtlwifi/rtl8192c/rtl8192c-common.ko
-kernel/drivers/net/wireless/rtlwifi/rtl8192cu/rtl8192cu.ko
+kernel/drivers/net/wireless/rtl818x/rtl8187/rtl8187.ko
