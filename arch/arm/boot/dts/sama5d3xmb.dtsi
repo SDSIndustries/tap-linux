@@ -30,6 +30,30 @@
 					spi-max-frequency = <50000000>;
 					reg = <0>;
 				};
+
+				//ad7799@3 {
+				//	compatible = "spidev";
+	       	                //        spi-max-frequency = <1000000>;
+				//	reg = <3>;
+					//pinctrl-names = "default";
+					//pinctrl-0 = <&pinctrl_spi0 &pinctrl_ad7799_cs_1>;
+	                                //spi-cpha;
+	                                //spi-cpol;
+			        //        vcc-supply = <&vdd_3v3_reg>;
+					//adi,clock-source = "AD7793_CLK_SRC_EXT";
+					//adi,burnout-current-enable;
+					//adi,boost-enable;
+					//adi,buffered-mode-enable;
+					//adi,unipolar-mode-enable;
+					//adi,reference-select = "AD7793_REFSEL_REFIN1";
+					//adi,bias-voltage = "AD7793_BIAS_VOLTAGE_DISABLED";
+					//adi,exitation-current = "AD7793_IX_DISABLED";
+					//adi,current-source-direction = "AD7793_IEXEC1_IOUT1_IEXEC2_IOUT2";
+	                                //irq-gpio = <&gpio 25 0x2>; /* IRQF_TRIGGER_FALLING */
+	                                //interrupts = <25 2>; /* high-to-low edge triggered */
+	                                //interrupt-parent = <&gpio>;
+	                        //        status = "okay";
+				//};
 			};
 
 			ssc0: ssc@f0008000 {
@@ -144,6 +168,12 @@
 						atmel,pins =
 							<AT91_PIOC 31 AT91_PERIPH_GPIO AT91_PINCTRL_PULL_UP>;
 					};
+
+					pinctrl_ad7799_cs_1: ad7799_cs_grp-1 {
+						atmel,pins = 
+							<AT91_PIOD 16 AT91_PERIPH_GPIO AT91_PINCTRL_NONE>; /* PD 16 CS */
+					};
+
 				};
 			};
 

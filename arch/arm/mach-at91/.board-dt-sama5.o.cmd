@@ -3,6 +3,7 @@ cmd_arch/arm/mach-at91/board-dt-sama5.o := /usr/bin/arm-linux-gnueabi-gcc -Wp,-M
 source_arch/arm/mach-at91/board-dt-sama5.o := arch/arm/mach-at91/board-dt-sama5.c
 
 deps_arch/arm/mach-at91/board-dt-sama5.o := \
+    $(wildcard include/config/ad7793.h) \
     $(wildcard include/config/cache/l2x0.h) \
     $(wildcard include/config/phylib.h) \
   include/linux/types.h \
@@ -876,6 +877,7 @@ deps_arch/arm/mach-at91/board-dt-sama5.o := \
   include/media/v4l2-fh.h \
   include/media/v4l2-mediabus.h \
   include/media/atmel-isi.h \
+  include/linux/platform_data/ad7793.h \
 
 arch/arm/mach-at91/board-dt-sama5.o: $(deps_arch/arm/mach-at91/board-dt-sama5.o)
 

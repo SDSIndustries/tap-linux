@@ -18,12 +18,12 @@
 			compression = "none";
 			load = <0x20008000>;
 			entry = <0x20008000>;
-			hash@1 {
+/*			hash@1 {
 				algo = "crc32";
 			};
 			hash@2 {
 				algo = "sha1";
-			};
+			};*/
 		};
 		fdt@1 {
 			description = "SDS Controller FDT Blob";
@@ -31,12 +31,12 @@
 			type = "flat_dt";
 			arch = "arm";
 			compression = "none";
-			hash@1 {
+/*			hash@1 {
 				algo = "crc32";
 			};
 			hash@2 {
 				algo = "sha1";
-			};
+			};*/
 		};
 	};
 

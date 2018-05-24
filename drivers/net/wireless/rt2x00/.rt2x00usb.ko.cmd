@@ -1,1 +1,0 @@
-cmd_drivers/net/wireless/rt2x00/rt2x00usb.ko := /usr/bin/arm-linux-gnueabi-ld -EL -r  -T /home/scott/controller/tap-linux/scripts/module-common.lds --build-id  -o drivers/net/wireless/rt2x00/rt2x00usb.ko drivers/net/wireless/rt2x00/rt2x00usb.o drivers/net/wireless/rt2x00/rt2x00usb.mod.o

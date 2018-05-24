@@ -195,68 +195,36 @@ deps_kernel/ksysfs.o := \
     $(wildcard include/config/.h) \
     $(wildcard include/config/kexec/jump.h) \
   include/uapi/linux/kexec.h \
-  include/linux/compat.h \
-    $(wildcard include/config/compat/old/sigaction.h) \
-    $(wildcard include/config/odd/rt/sigaction.h) \
-  include/linux/ioport.h \
-    $(wildcard include/config/memory/hotremove.h) \
-  include/linux/elfcore.h \
-  include/linux/user.h \
-  /home/scott/controller/tap-linux/arch/arm/include/asm/user.h \
-  /home/scott/controller/tap-linux/arch/arm/include/asm/page.h \
-    $(wildcard include/config/cpu/copy/v4wt.h) \
-    $(wildcard include/config/cpu/copy/v4wb.h) \
-    $(wildcard include/config/cpu/copy/feroceon.h) \
-    $(wildcard include/config/cpu/copy/fa.h) \
-    $(wildcard include/config/cpu/xscale.h) \
-    $(wildcard include/config/cpu/copy/v6.h) \
-    $(wildcard include/config/have/arch/pfn/valid.h) \
-  /home/scott/controller/tap-linux/arch/arm/include/asm/glue.h \
-  /home/scott/controller/tap-linux/arch/arm/include/asm/pgtable-2level-types.h \
-  /home/scott/controller/tap-linux/arch/arm/include/asm/memory.h \
-    $(wildcard include/config/need/mach/memory/h.h) \
-    $(wildcard include/config/page/offset.h) \
-    $(wildcard include/config/highmem.h) \
-    $(wildcard include/config/dram/size.h) \
-    $(wildcard include/config/dram/base.h) \
-    $(wildcard include/config/have/tcm.h) \
-    $(wildcard include/config/arm/patch/phys/virt.h) \
-    $(wildcard include/config/phys/offset.h) \
-    $(wildcard include/config/virt/to/bus.h) \
-  include/linux/sizes.h \
-  include/asm-generic/memory_model.h \
-    $(wildcard include/config/flatmem.h) \
-    $(wildcard include/config/discontigmem.h) \
-    $(wildcard include/config/sparsemem/vmemmap.h) \
-    $(wildcard include/config/sparsemem.h) \
-  include/asm-generic/getorder.h \
-  /home/scott/controller/tap-linux/arch/arm/include/asm/elf.h \
-  include/uapi/linux/elfcore.h \
-    $(wildcard include/config/binfmt/elf/fdpic.h) \
-  include/linux/signal.h \
-    $(wildcard include/config/old/sigaction.h) \
+  include/linux/profile.h \
     $(wildcard include/config/proc/fs.h) \
-  include/uapi/linux/signal.h \
-  /home/scott/controller/tap-linux/arch/arm/include/asm/signal.h \
-  /home/scott/controller/tap-linux/arch/arm/include/uapi/asm/signal.h \
-  /home/scott/controller/tap-linux/include/uapi/asm-generic/signal-defs.h \
-  /home/scott/controller/tap-linux/arch/arm/include/uapi/asm/sigcontext.h \
-  arch/arm/include/generated/asm/siginfo.h \
-  include/asm-generic/siginfo.h \
-  include/uapi/asm-generic/siginfo.h \
-  include/linux/time.h \
-    $(wildcard include/config/arch/uses/gettimeoffset.h) \
+  include/linux/cpumask.h \
+    $(wildcard include/config/cpumask/offstack.h) \
+    $(wildcard include/config/hotplug/cpu.h) \
+    $(wildcard include/config/debug/per/cpu/maps.h) \
+    $(wildcard include/config/disable/obsolete/cpumask/functions.h) \
+  include/linux/threads.h \
+    $(wildcard include/config/nr/cpus.h) \
+    $(wildcard include/config/base/small.h) \
+  include/linux/bitmap.h \
   include/linux/cache.h \
     $(wildcard include/config/arch/has/cache/line/size.h) \
   /home/scott/controller/tap-linux/arch/arm/include/asm/cache.h \
     $(wildcard include/config/arm/l1/cache/shift.h) \
     $(wildcard include/config/aeabi.h) \
+  include/linux/stat.h \
+  /home/scott/controller/tap-linux/arch/arm/include/uapi/asm/stat.h \
+  include/uapi/linux/stat.h \
+  include/linux/time.h \
+    $(wildcard include/config/arch/uses/gettimeoffset.h) \
   include/linux/seqlock.h \
   include/linux/math64.h \
   /home/scott/controller/tap-linux/arch/arm/include/asm/div64.h \
   /home/scott/controller/tap-linux/arch/arm/include/asm/compiler.h \
   include/uapi/linux/time.h \
-  include/linux/ptrace.h \
+  include/linux/uidgid.h \
+    $(wildcard include/config/uidgid/strict/type/checks.h) \
+    $(wildcard include/config/user/ns.h) \
+  include/linux/highuid.h \
   include/linux/sched.h \
     $(wildcard include/config/sched/debug.h) \
     $(wildcard include/config/no/hz/common.h) \
@@ -302,10 +270,8 @@ deps_kernel/ksysfs.o := \
     $(wildcard include/config/memcg.h) \
     $(wildcard include/config/uprobes.h) \
     $(wildcard include/config/bcache.h) \
-    $(wildcard include/config/cpumask/offstack.h) \
     $(wildcard include/config/have/unstable/sched/clock.h) \
     $(wildcard include/config/irq/time/accounting.h) \
-    $(wildcard include/config/hotplug/cpu.h) \
     $(wildcard include/config/no/hz/full.h) \
     $(wildcard include/config/stack/growsup.h) \
     $(wildcard include/config/mm/owner.h) \
@@ -316,9 +282,6 @@ deps_kernel/ksysfs.o := \
   include/uapi/asm-generic/param.h \
   include/linux/capability.h \
   include/uapi/linux/capability.h \
-  include/linux/threads.h \
-    $(wildcard include/config/nr/cpus.h) \
-    $(wildcard include/config/base/small.h) \
   include/linux/timex.h \
   include/uapi/linux/timex.h \
   /home/scott/controller/tap-linux/include/uapi/linux/param.h \
@@ -328,6 +291,7 @@ deps_kernel/ksysfs.o := \
   arch/arm/mach-at91/include/mach/hardware.h \
   arch/arm/include/generated/asm/sizes.h \
   include/asm-generic/sizes.h \
+  include/linux/sizes.h \
   arch/arm/mach-at91/include/mach/at91rm9200.h \
   arch/arm/mach-at91/include/mach/at91sam9260.h \
   arch/arm/mach-at91/include/mach/at91sam9261.h \
@@ -340,11 +304,8 @@ deps_kernel/ksysfs.o := \
   arch/arm/mach-at91/include/mach/sama5d4.h \
   include/linux/jiffies.h \
   include/linux/rbtree.h \
-  include/linux/cpumask.h \
-    $(wildcard include/config/debug/per/cpu/maps.h) \
-    $(wildcard include/config/disable/obsolete/cpumask/functions.h) \
-  include/linux/bitmap.h \
   include/linux/nodemask.h \
+    $(wildcard include/config/highmem.h) \
     $(wildcard include/config/movable/node.h) \
   include/linux/numa.h \
     $(wildcard include/config/nodes/shift.h) \
@@ -372,7 +333,32 @@ deps_kernel/ksysfs.o := \
   include/linux/uprobes.h \
     $(wildcard include/config/arch/supports/uprobes.h) \
   include/linux/page-flags-layout.h \
+    $(wildcard include/config/sparsemem.h) \
+    $(wildcard include/config/sparsemem/vmemmap.h) \
   include/generated/bounds.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/page.h \
+    $(wildcard include/config/cpu/copy/v4wt.h) \
+    $(wildcard include/config/cpu/copy/v4wb.h) \
+    $(wildcard include/config/cpu/copy/feroceon.h) \
+    $(wildcard include/config/cpu/copy/fa.h) \
+    $(wildcard include/config/cpu/xscale.h) \
+    $(wildcard include/config/cpu/copy/v6.h) \
+    $(wildcard include/config/have/arch/pfn/valid.h) \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/glue.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/pgtable-2level-types.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/memory.h \
+    $(wildcard include/config/need/mach/memory/h.h) \
+    $(wildcard include/config/page/offset.h) \
+    $(wildcard include/config/dram/size.h) \
+    $(wildcard include/config/dram/base.h) \
+    $(wildcard include/config/have/tcm.h) \
+    $(wildcard include/config/arm/patch/phys/virt.h) \
+    $(wildcard include/config/phys/offset.h) \
+    $(wildcard include/config/virt/to/bus.h) \
+  include/asm-generic/memory_model.h \
+    $(wildcard include/config/flatmem.h) \
+    $(wildcard include/config/discontigmem.h) \
+  include/asm-generic/getorder.h \
   /home/scott/controller/tap-linux/arch/arm/include/asm/mmu.h \
     $(wildcard include/config/cpu/has/asid.h) \
   arch/arm/include/generated/asm/cputime.h \
@@ -397,15 +383,21 @@ deps_kernel/ksysfs.o := \
   include/linux/rcutiny.h \
   include/uapi/linux/sem.h \
   include/linux/ipc.h \
-  include/linux/uidgid.h \
-    $(wildcard include/config/uidgid/strict/type/checks.h) \
-    $(wildcard include/config/user/ns.h) \
-  include/linux/highuid.h \
   include/uapi/linux/ipc.h \
   arch/arm/include/generated/asm/ipcbuf.h \
   /home/scott/controller/tap-linux/include/uapi/asm-generic/ipcbuf.h \
   arch/arm/include/generated/asm/sembuf.h \
   /home/scott/controller/tap-linux/include/uapi/asm-generic/sembuf.h \
+  include/linux/signal.h \
+    $(wildcard include/config/old/sigaction.h) \
+  include/uapi/linux/signal.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/signal.h \
+  /home/scott/controller/tap-linux/arch/arm/include/uapi/asm/signal.h \
+  /home/scott/controller/tap-linux/include/uapi/asm-generic/signal-defs.h \
+  /home/scott/controller/tap-linux/arch/arm/include/uapi/asm/sigcontext.h \
+  arch/arm/include/generated/asm/siginfo.h \
+  include/asm-generic/siginfo.h \
+  include/uapi/asm-generic/siginfo.h \
   include/linux/pid.h \
   include/linux/percpu.h \
     $(wildcard include/config/need/per/cpu/embed/first/chunk.h) \
@@ -445,6 +437,7 @@ deps_kernel/ksysfs.o := \
     $(wildcard include/config/hugetlb/page.h) \
     $(wildcard include/config/hugetlb/page/size/variable.h) \
   include/linux/memory_hotplug.h \
+    $(wildcard include/config/memory/hotremove.h) \
     $(wildcard include/config/have/arch/nodedata/extension.h) \
     $(wildcard include/config/have/bootmem/info/node.h) \
   include/linux/notifier.h \
@@ -499,60 +492,6 @@ deps_kernel/ksysfs.o := \
   include/linux/mmdebug.h \
     $(wildcard include/config/debug/vm.h) \
     $(wildcard include/config/debug/virtual.h) \
-  include/linux/err.h \
-  include/uapi/linux/ptrace.h \
-  include/linux/elf.h \
-  include/uapi/linux/elf.h \
-  /home/scott/controller/tap-linux/include/uapi/linux/elf-em.h \
-  include/linux/fs.h \
-    $(wildcard include/config/fs/posix/acl.h) \
-    $(wildcard include/config/quota.h) \
-    $(wildcard include/config/fsnotify.h) \
-    $(wildcard include/config/ima.h) \
-    $(wildcard include/config/debug/writecount.h) \
-    $(wildcard include/config/file/locking.h) \
-    $(wildcard include/config/fs/xip.h) \
-    $(wildcard include/config/migration.h) \
-  include/linux/kdev_t.h \
-  include/uapi/linux/kdev_t.h \
-  include/linux/dcache.h \
-  include/linux/rculist_bl.h \
-  include/linux/list_bl.h \
-  include/linux/bit_spinlock.h \
-  include/linux/path.h \
-  include/linux/stat.h \
-  /home/scott/controller/tap-linux/arch/arm/include/uapi/asm/stat.h \
-  include/uapi/linux/stat.h \
-  include/linux/radix-tree.h \
-  include/linux/semaphore.h \
-  /home/scott/controller/tap-linux/include/uapi/linux/fiemap.h \
-  include/linux/shrinker.h \
-  include/linux/migrate_mode.h \
-  include/linux/percpu-rwsem.h \
-  include/linux/blk_types.h \
-    $(wildcard include/config/blk/cgroup.h) \
-    $(wildcard include/config/blk/dev/integrity.h) \
-  include/uapi/linux/fs.h \
-  /home/scott/controller/tap-linux/include/uapi/linux/limits.h \
-  /home/scott/controller/tap-linux/include/uapi/linux/ioctl.h \
-  arch/arm/include/generated/asm/ioctl.h \
-  include/asm-generic/ioctl.h \
-  include/uapi/asm-generic/ioctl.h \
-  include/linux/quota.h \
-    $(wildcard include/config/quota/netlink/interface.h) \
-  /home/scott/controller/tap-linux/include/uapi/linux/dqblk_xfs.h \
-  include/linux/dqblk_v1.h \
-  include/linux/dqblk_v2.h \
-  include/linux/dqblk_qtree.h \
-  include/linux/projid.h \
-  include/uapi/linux/quota.h \
-  include/linux/nfs_fs_i.h \
-  include/linux/fcntl.h \
-  include/uapi/linux/fcntl.h \
-  /home/scott/controller/tap-linux/arch/arm/include/uapi/asm/fcntl.h \
-  /home/scott/controller/tap-linux/include/uapi/asm-generic/fcntl.h \
-  /home/scott/controller/tap-linux/arch/arm/include/asm/kexec.h \
-  include/linux/profile.h \
 
 kernel/ksysfs.o: $(deps_kernel/ksysfs.o)
 

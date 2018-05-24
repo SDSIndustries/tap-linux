@@ -1187,7 +1187,7 @@
  ahb {
   apb {
    spi0: spi@f0004000 {
-    cs-gpios = <&pioD 13 0>, <0>, <0>, <0>;
+    cs-gpios = <&pioD 13 0>, <0>, <0>, <&pioD 16 0>;
    };
 
    macb0: ethernet@f0028000 {
@@ -1270,6 +1270,7 @@
      spi-max-frequency = <50000000>;
      reg = <0>;
     };
+# 57 "arch/arm/boot/dts/sama5d3xmb.dtsi"
    };
 
    ssc0: ssc@f0008000 {
@@ -1384,6 +1385,12 @@
       atmel,pins =
        <2 31 0 (1 << 0)>;
      };
+
+     pinctrl_ad7799_cs_1: ad7799_cs_grp-1 {
+      atmel,pins =
+       <3 16 0 (0 << 0)>;
+     };
+
     };
    };
 

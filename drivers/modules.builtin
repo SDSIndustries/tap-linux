@@ -19,6 +19,8 @@ kernel/drivers/i2c/busses/i2c-gpio.ko
 kernel/drivers/iio/industrialio.ko
 kernel/drivers/iio/industrialio-triggered-buffer.ko
 kernel/drivers/iio/kfifo_buf.ko
+kernel/drivers/iio/adc/ad_sigma_delta.ko
+kernel/drivers/iio/adc/ad7793.ko
 kernel/drivers/iio/adc/at91_adc.ko
 kernel/drivers/input/input-core.ko
 kernel/drivers/input/evdev.ko
@@ -59,6 +61,8 @@ kernel/drivers/net/phy/libphy.ko
 kernel/drivers/net/phy/micrel.ko
 kernel/drivers/net/wireless/hostap/hostap.ko
 kernel/drivers/net/wireless/rtl818x/rtl8187/rtl8187.ko
+kernel/drivers/net/wireless/rtl8192/8192eu.ko
+kernel/drivers/net/wireless/rtlwifi/rtlwifi.ko
 kernel/drivers/of/of_i2c.ko
 kernel/drivers/of/of_mdio.ko
 kernel/drivers/pwm/pwm-atmel.ko
@@ -66,6 +70,7 @@ kernel/drivers/pwm/pwm-atmel-tcb.ko
 kernel/drivers/rtc/rtc-at91rm9200.ko
 kernel/drivers/scsi/scsi_mod.ko
 kernel/drivers/scsi/sd_mod.ko
+kernel/drivers/spi/spidev.ko
 kernel/drivers/spi/spi-atmel.ko
 kernel/drivers/spi/spi-bitbang.ko
 kernel/drivers/spi/spi-gpio.ko

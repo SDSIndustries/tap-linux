@@ -774,13 +774,6 @@ deps_kernel/printk.o := \
     $(wildcard include/config/.h) \
     $(wildcard include/config/kexec/jump.h) \
   include/uapi/linux/kexec.h \
-  include/linux/compat.h \
-    $(wildcard include/config/compat/old/sigaction.h) \
-  include/linux/elfcore.h \
-  include/linux/user.h \
-  include/uapi/linux/elfcore.h \
-    $(wildcard include/config/binfmt/elf/fdpic.h) \
-  /home/scott/controller/tap-linux/arch/arm/include/asm/kexec.h \
   include/linux/kdb.h \
   include/linux/kmsg_dump.h \
   include/linux/syslog.h \

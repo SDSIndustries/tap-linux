@@ -2,10 +2,8 @@ kernel/fs/configfs/configfs.ko
 kernel/crypto/af_alg.ko
 kernel/crypto/algif_hash.ko
 kernel/crypto/algif_skcipher.ko
-kernel/drivers/net/wireless/rtlwifi/rtlwifi.ko
 kernel/drivers/net/wireless/rtlwifi/rtl8192c/rtl8192c-common.ko
 kernel/drivers/net/wireless/rtlwifi/rtl8192cu/rtl8192cu.ko
-kernel/drivers/net/wireless/rtl8192/8192eu.ko
 kernel/drivers/usb/gadget/libcomposite.ko
 kernel/drivers/usb/gadget/usb_f_acm.ko
 kernel/drivers/usb/gadget/u_serial.ko

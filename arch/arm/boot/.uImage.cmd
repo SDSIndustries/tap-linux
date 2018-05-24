@@ -1,0 +1,1 @@
+cmd_arch/arm/boot/uImage := /bin/bash /home/scott/controller/tap-linux/scripts/mkuboot.sh -A arm -O linux -C none  -T kernel -a 0x20008000 -e 0x20008000 -n 'Linux-3.10.0+' -d arch/arm/boot/zImage arch/arm/boot/uImage

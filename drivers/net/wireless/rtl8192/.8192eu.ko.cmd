@@ -1,1 +1,0 @@
-cmd_drivers/net/wireless/rtl8192/8192eu.ko := /usr/bin/arm-linux-gnueabi-ld -EL -r  -T /home/scott/controller/tap-linux/scripts/module-common.lds --build-id  -o drivers/net/wireless/rtl8192/8192eu.ko drivers/net/wireless/rtl8192/8192eu.o drivers/net/wireless/rtl8192/8192eu.mod.o

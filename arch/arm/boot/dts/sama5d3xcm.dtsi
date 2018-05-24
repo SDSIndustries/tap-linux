@@ -33,7 +33,7 @@
 	ahb {
 		apb {
 			spi0: spi@f0004000 {
-				cs-gpios = <&pioD 13 0>, <0>, <0>, <0>;
+				cs-gpios = <&pioD 13 0>, <0>, <0>, <&pioD 16 0>;
 			};
 
 			macb0: ethernet@f0028000 {

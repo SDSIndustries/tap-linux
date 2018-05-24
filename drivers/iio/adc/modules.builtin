@@ -1,1 +1,3 @@
+kernel/drivers/iio/adc/ad_sigma_delta.ko
+kernel/drivers/iio/adc/ad7793.ko
 kernel/drivers/iio/adc/at91_adc.ko

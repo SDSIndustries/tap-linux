@@ -1,1 +1,0 @@
-cmd_drivers/net/wireless/libertas_tf/libertas_tf.ko := /usr/bin/arm-linux-gnueabi-ld -EL -r  -T /home/scott/controller/tap-linux/scripts/module-common.lds --build-id  -o drivers/net/wireless/libertas_tf/libertas_tf.ko drivers/net/wireless/libertas_tf/libertas_tf.o drivers/net/wireless/libertas_tf/libertas_tf.mod.o

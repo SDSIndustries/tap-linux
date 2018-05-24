@@ -563,20 +563,32 @@ deps_arch/arm/kernel/setup.o := \
     $(wildcard include/config/.h) \
     $(wildcard include/config/kexec/jump.h) \
   include/uapi/linux/kexec.h \
-  include/linux/compat.h \
-    $(wildcard include/config/compat/old/sigaction.h) \
-    $(wildcard include/config/odd/rt/sigaction.h) \
-  include/linux/elfcore.h \
-  include/linux/user.h \
-  /home/scott/controller/tap-linux/arch/arm/include/asm/user.h \
-  /home/scott/controller/tap-linux/arch/arm/include/asm/elf.h \
-  include/uapi/linux/elfcore.h \
-    $(wildcard include/config/binfmt/elf/fdpic.h) \
-  include/linux/ptrace.h \
-  include/uapi/linux/ptrace.h \
-  include/linux/elf.h \
-  include/uapi/linux/elf.h \
-  /home/scott/controller/tap-linux/include/uapi/linux/elf-em.h \
+  include/linux/of_fdt.h \
+    $(wildcard include/config/of/flattree.h) \
+    $(wildcard include/config/blk/dev/initrd.h) \
+  include/linux/cpu.h \
+    $(wildcard include/config/arch/has/cpu/autoprobe.h) \
+    $(wildcard include/config/arch/cpu/probe/release.h) \
+    $(wildcard include/config/pm/sleep/smp.h) \
+  include/linux/node.h \
+    $(wildcard include/config/memory/hotplug/sparse.h) \
+    $(wildcard include/config/hugetlbfs.h) \
+  include/linux/interrupt.h \
+    $(wildcard include/config/generic/hardirqs.h) \
+    $(wildcard include/config/irq/forced/threading.h) \
+    $(wildcard include/config/generic/irq/probe.h) \
+  include/linux/irqreturn.h \
+  include/linux/irqnr.h \
+  include/uapi/linux/irqnr.h \
+  include/linux/hardirq.h \
+  include/linux/ftrace_irq.h \
+    $(wildcard include/config/ftrace/nmi/enter.h) \
+  include/linux/vtime.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/hardirq.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/irq.h \
+    $(wildcard include/config/sparse/irq.h) \
+  include/linux/irq_cpustat.h \
+  include/linux/proc_fs.h \
   include/linux/fs.h \
     $(wildcard include/config/fs/posix/acl.h) \
     $(wildcard include/config/quota.h) \
@@ -624,33 +636,6 @@ deps_arch/arm/kernel/setup.o := \
   include/uapi/linux/fcntl.h \
   /home/scott/controller/tap-linux/arch/arm/include/uapi/asm/fcntl.h \
   /home/scott/controller/tap-linux/include/uapi/asm-generic/fcntl.h \
-  /home/scott/controller/tap-linux/arch/arm/include/asm/kexec.h \
-  include/linux/of_fdt.h \
-    $(wildcard include/config/of/flattree.h) \
-    $(wildcard include/config/blk/dev/initrd.h) \
-  include/linux/cpu.h \
-    $(wildcard include/config/arch/has/cpu/autoprobe.h) \
-    $(wildcard include/config/arch/cpu/probe/release.h) \
-    $(wildcard include/config/pm/sleep/smp.h) \
-  include/linux/node.h \
-    $(wildcard include/config/memory/hotplug/sparse.h) \
-    $(wildcard include/config/hugetlbfs.h) \
-  include/linux/interrupt.h \
-    $(wildcard include/config/generic/hardirqs.h) \
-    $(wildcard include/config/irq/forced/threading.h) \
-    $(wildcard include/config/generic/irq/probe.h) \
-  include/linux/irqreturn.h \
-  include/linux/irqnr.h \
-  include/uapi/linux/irqnr.h \
-  include/linux/hardirq.h \
-  include/linux/ftrace_irq.h \
-    $(wildcard include/config/ftrace/nmi/enter.h) \
-  include/linux/vtime.h \
-  /home/scott/controller/tap-linux/arch/arm/include/asm/hardirq.h \
-  /home/scott/controller/tap-linux/arch/arm/include/asm/irq.h \
-    $(wildcard include/config/sparse/irq.h) \
-  include/linux/irq_cpustat.h \
-  include/linux/proc_fs.h \
   include/linux/memblock.h \
     $(wildcard include/config/have/memblock.h) \
     $(wildcard include/config/arch/discard/memblock.h) \
@@ -712,6 +697,8 @@ deps_arch/arm/kernel/setup.o := \
     $(wildcard include/config/cpu/cp15.h) \
   /home/scott/controller/tap-linux/arch/arm/include/asm/cpu.h \
   /home/scott/controller/tap-linux/arch/arm/include/asm/cputype.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/elf.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/user.h \
   /home/scott/controller/tap-linux/arch/arm/include/asm/procinfo.h \
   arch/arm/include/generated/asm/sections.h \
   include/asm-generic/sections.h \

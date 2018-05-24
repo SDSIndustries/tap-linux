@@ -1,1 +1,0 @@
-cmd_drivers/misc/eeprom/eeprom_93cx6.ko := /usr/bin/arm-linux-gnueabi-ld -EL -r  -T /home/scott/controller/tap-linux/scripts/module-common.lds --build-id  -o drivers/misc/eeprom/eeprom_93cx6.ko drivers/misc/eeprom/eeprom_93cx6.o drivers/misc/eeprom/eeprom_93cx6.mod.o

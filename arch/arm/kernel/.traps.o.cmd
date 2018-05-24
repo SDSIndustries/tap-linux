@@ -433,15 +433,8 @@ deps_arch/arm/kernel/traps.o := \
     $(wildcard include/config/.h) \
     $(wildcard include/config/kexec/jump.h) \
   include/uapi/linux/kexec.h \
-  include/linux/compat.h \
-    $(wildcard include/config/compat/old/sigaction.h) \
-    $(wildcard include/config/odd/rt/sigaction.h) \
-  include/linux/ioport.h \
-  include/linux/elfcore.h \
-  include/linux/user.h \
-  include/uapi/linux/elfcore.h \
-    $(wildcard include/config/binfmt/elf/fdpic.h) \
-  include/linux/ptrace.h \
+  include/linux/delay.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/delay.h \
   include/linux/sched.h \
     $(wildcard include/config/sched/debug.h) \
     $(wildcard include/config/no/hz/common.h) \
@@ -551,55 +544,6 @@ deps_arch/arm/kernel/traps.o := \
     $(wildcard include/config/security/selinux.h) \
   include/linux/llist.h \
     $(wildcard include/config/arch/have/nmi/safe/cmpxchg.h) \
-  include/linux/err.h \
-  include/uapi/linux/ptrace.h \
-  include/linux/fs.h \
-    $(wildcard include/config/fs/posix/acl.h) \
-    $(wildcard include/config/quota.h) \
-    $(wildcard include/config/fsnotify.h) \
-    $(wildcard include/config/ima.h) \
-    $(wildcard include/config/debug/writecount.h) \
-    $(wildcard include/config/file/locking.h) \
-    $(wildcard include/config/fs/xip.h) \
-    $(wildcard include/config/migration.h) \
-  include/linux/kdev_t.h \
-  include/uapi/linux/kdev_t.h \
-  include/linux/dcache.h \
-  include/linux/rculist_bl.h \
-  include/linux/list_bl.h \
-  include/linux/bit_spinlock.h \
-  include/linux/path.h \
-  include/linux/radix-tree.h \
-  include/linux/semaphore.h \
-  /home/scott/controller/tap-linux/include/uapi/linux/fiemap.h \
-  include/linux/shrinker.h \
-  include/linux/migrate_mode.h \
-  include/linux/percpu-rwsem.h \
-  include/linux/blk_types.h \
-    $(wildcard include/config/blk/cgroup.h) \
-    $(wildcard include/config/blk/dev/integrity.h) \
-  include/uapi/linux/fs.h \
-  /home/scott/controller/tap-linux/include/uapi/linux/limits.h \
-  /home/scott/controller/tap-linux/include/uapi/linux/ioctl.h \
-  arch/arm/include/generated/asm/ioctl.h \
-  include/asm-generic/ioctl.h \
-  include/uapi/asm-generic/ioctl.h \
-  include/linux/quota.h \
-    $(wildcard include/config/quota/netlink/interface.h) \
-  /home/scott/controller/tap-linux/include/uapi/linux/dqblk_xfs.h \
-  include/linux/dqblk_v1.h \
-  include/linux/dqblk_v2.h \
-  include/linux/dqblk_qtree.h \
-  include/linux/projid.h \
-  include/uapi/linux/quota.h \
-  include/linux/nfs_fs_i.h \
-  include/linux/fcntl.h \
-  include/uapi/linux/fcntl.h \
-  /home/scott/controller/tap-linux/arch/arm/include/uapi/asm/fcntl.h \
-  /home/scott/controller/tap-linux/include/uapi/asm-generic/fcntl.h \
-  /home/scott/controller/tap-linux/arch/arm/include/asm/kexec.h \
-  include/linux/delay.h \
-  /home/scott/controller/tap-linux/arch/arm/include/asm/delay.h \
   /home/scott/controller/tap-linux/arch/arm/include/asm/cacheflush.h \
     $(wildcard include/config/cpu/v7.h) \
     $(wildcard include/config/cpu/v6k.h) \
@@ -620,6 +564,8 @@ deps_arch/arm/kernel/traps.o := \
   include/linux/debug_locks.h \
     $(wildcard include/config/debug/locking/api/selftests.h) \
   include/linux/range.h \
+  include/linux/bit_spinlock.h \
+  include/linux/shrinker.h \
   /home/scott/controller/tap-linux/arch/arm/include/asm/pgtable.h \
     $(wildcard include/config/highpte.h) \
   /home/scott/controller/tap-linux/arch/arm/include/asm/proc-fns.h \
@@ -655,6 +601,7 @@ deps_arch/arm/kernel/traps.o := \
   include/linux/vmstat.h \
     $(wildcard include/config/vm/event/counters.h) \
   include/linux/vm_event_item.h \
+    $(wildcard include/config/migration.h) \
   /home/scott/controller/tap-linux/arch/arm/include/asm/glue-cache.h \
     $(wildcard include/config/cpu/cache/v4.h) \
     $(wildcard include/config/cpu/cache/v4wb.h) \
@@ -673,6 +620,50 @@ deps_arch/arm/kernel/traps.o := \
   include/linux/trace_clock.h \
   arch/arm/include/generated/asm/trace_clock.h \
   include/asm-generic/trace_clock.h \
+  include/linux/ptrace.h \
+  include/linux/err.h \
+  include/uapi/linux/ptrace.h \
+  include/linux/fs.h \
+    $(wildcard include/config/fs/posix/acl.h) \
+    $(wildcard include/config/quota.h) \
+    $(wildcard include/config/fsnotify.h) \
+    $(wildcard include/config/ima.h) \
+    $(wildcard include/config/debug/writecount.h) \
+    $(wildcard include/config/file/locking.h) \
+    $(wildcard include/config/fs/xip.h) \
+  include/linux/kdev_t.h \
+  include/uapi/linux/kdev_t.h \
+  include/linux/dcache.h \
+  include/linux/rculist_bl.h \
+  include/linux/list_bl.h \
+  include/linux/path.h \
+  include/linux/radix-tree.h \
+  include/linux/semaphore.h \
+  /home/scott/controller/tap-linux/include/uapi/linux/fiemap.h \
+  include/linux/migrate_mode.h \
+  include/linux/percpu-rwsem.h \
+  include/linux/blk_types.h \
+    $(wildcard include/config/blk/cgroup.h) \
+    $(wildcard include/config/blk/dev/integrity.h) \
+  include/uapi/linux/fs.h \
+  /home/scott/controller/tap-linux/include/uapi/linux/limits.h \
+  /home/scott/controller/tap-linux/include/uapi/linux/ioctl.h \
+  arch/arm/include/generated/asm/ioctl.h \
+  include/asm-generic/ioctl.h \
+  include/uapi/asm-generic/ioctl.h \
+  include/linux/quota.h \
+    $(wildcard include/config/quota/netlink/interface.h) \
+  /home/scott/controller/tap-linux/include/uapi/linux/dqblk_xfs.h \
+  include/linux/dqblk_v1.h \
+  include/linux/dqblk_v2.h \
+  include/linux/dqblk_qtree.h \
+  include/linux/projid.h \
+  include/uapi/linux/quota.h \
+  include/linux/nfs_fs_i.h \
+  include/linux/fcntl.h \
+  include/uapi/linux/fcntl.h \
+  /home/scott/controller/tap-linux/arch/arm/include/uapi/asm/fcntl.h \
+  /home/scott/controller/tap-linux/include/uapi/asm-generic/fcntl.h \
   /home/scott/controller/tap-linux/arch/arm/include/asm/ftrace.h \
     $(wildcard include/config/old/mcount.h) \
   /home/scott/controller/tap-linux/arch/arm/include/asm/unistd.h \

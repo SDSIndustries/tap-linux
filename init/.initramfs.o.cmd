@@ -705,18 +705,6 @@ deps_init/initramfs.o := \
     $(wildcard include/config/.h) \
     $(wildcard include/config/kexec/jump.h) \
   include/uapi/linux/kexec.h \
-  include/linux/compat.h \
-    $(wildcard include/config/compat/old/sigaction.h) \
-  include/linux/elfcore.h \
-  include/linux/user.h \
-  /home/scott/controller/tap-linux/arch/arm/include/asm/user.h \
-  /home/scott/controller/tap-linux/arch/arm/include/asm/elf.h \
-  include/uapi/linux/elfcore.h \
-    $(wildcard include/config/binfmt/elf/fdpic.h) \
-  include/linux/elf.h \
-  include/uapi/linux/elf.h \
-  /home/scott/controller/tap-linux/include/uapi/linux/elf-em.h \
-  /home/scott/controller/tap-linux/arch/arm/include/asm/kexec.h \
 
 init/initramfs.o: $(deps_init/initramfs.o)
 

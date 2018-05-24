@@ -1,1 +1,0 @@
-cmd_drivers/net/wireless/mwifiex/mwifiex_sdio.ko := /usr/bin/arm-linux-gnueabi-ld -EL -r  -T /home/scott/controller/tap-linux/scripts/module-common.lds --build-id  -o drivers/net/wireless/mwifiex/mwifiex_sdio.ko drivers/net/wireless/mwifiex/mwifiex_sdio.o drivers/net/wireless/mwifiex/mwifiex_sdio.mod.o

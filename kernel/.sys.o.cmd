@@ -671,19 +671,6 @@ deps_kernel/sys.o := \
     $(wildcard include/config/.h) \
     $(wildcard include/config/kexec/jump.h) \
   include/uapi/linux/kexec.h \
-  include/linux/compat.h \
-    $(wildcard include/config/compat/old/sigaction.h) \
-    $(wildcard include/config/odd/rt/sigaction.h) \
-  include/linux/elfcore.h \
-  include/linux/user.h \
-  /home/scott/controller/tap-linux/arch/arm/include/asm/user.h \
-  /home/scott/controller/tap-linux/arch/arm/include/asm/elf.h \
-  include/uapi/linux/elfcore.h \
-    $(wildcard include/config/binfmt/elf/fdpic.h) \
-  include/linux/elf.h \
-  include/uapi/linux/elf.h \
-  /home/scott/controller/tap-linux/include/uapi/linux/elf-em.h \
-  /home/scott/controller/tap-linux/arch/arm/include/asm/kexec.h \
   /home/scott/controller/tap-linux/include/uapi/linux/times.h \
   include/linux/posix-timers.h \
   include/linux/alarmtimer.h \
@@ -781,6 +768,9 @@ deps_kernel/sys.o := \
   include/linux/syscore_ops.h \
   include/generated/uapi/linux/version.h \
   include/linux/ctype.h \
+  include/linux/compat.h \
+    $(wildcard include/config/compat/old/sigaction.h) \
+    $(wildcard include/config/odd/rt/sigaction.h) \
   include/linux/syscalls.h \
     $(wildcard include/config/old/sigsuspend.h) \
     $(wildcard include/config/old/sigsuspend3.h) \
