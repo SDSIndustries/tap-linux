@@ -41,8 +41,6 @@
 #include <media/soc_camera.h>
 #include <media/atmel-isi.h>
 
-#include <linux/platform_data/ad7793.h>
-
 #define LINK_SENSOR_MODULE_TO_SOC_CAMERA(_sensor_name, _soc_camera_id, _i2c_adapter_id)	\
 	static struct soc_camera_desc iclink_##_sensor_name = {		\
 		.subdev_desc = {					\
@@ -63,35 +61,6 @@
 			.platform_data = &iclink_##_sensor_name,	\
 		},							\
 	};
-
-/*
- * AD7799
- */
-static struct ad7793_platform_data ad7799_pdata = {
-	.clock_src = AD7793_CLK_SRC_INT,
-	.unipolar = true,
-	.buffered = true,
-	.refsel = AD7793_REFSEL_REFIN1,
-	//.burnout_current = false,
-	//.boost_enable = false,
-	//.bias_voltage = AD7793_BIAS_VOLTAGE_DISABLED,
-	//.exitation_current = AD7793_IX_DISABLED,
-	//.current_source_direction = AD7793_IEXEC1_IOUT1_IEXEC2_IOUT2,
-};
-
-static struct spi_board_info board_spi_board_info[] __initdata = {
-#if defined(CONFIG_AD7793) || defined(CONFIG_AD7793_MODULE)
-	{
-		.modalias = "adi,ad7793",
-		.max_speed_hz = 1000000,     /* max spi clock (SCK) speed in HZ */
-		.bus_num = 32766,
-		.chip_select = 3, /* CS, change it for your board */
-		.platform_data = &ad7799_pdata, /* No spi_driver specific config */
-		.mode = SPI_MODE_3,
-		.irq = 17,
-	},
-#endif
-};
 
 /*
  * LCD Controller
@@ -526,8 +495,6 @@ static void __init sama5_dt_device_init(void)
 
 		printk("LCD parameters updated for PDA4 display module\n");
 	}
-
-	spi_register_board_info(board_spi_board_info, ARRAY_SIZE(board_spi_board_info));
 
 	if (of_machine_is_compatible("encoder-sii9022")) {
 		np = of_find_compatible_node(NULL, NULL, "sii902x");

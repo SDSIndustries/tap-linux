@@ -16,6 +16,7 @@
 
 	ahb {
 		apb {
+
 			spi0: spi@f0004000 {
 				status = "okay";
 			};
@@ -33,11 +34,6 @@
 			};
 
 			i2c1: i2c@f0018000 {
-				status = "disabled";
-			};
-
-			/* ISI VSYNC/HSYNC Conflict with i2c0 */
-			isi: isi@f0034000 {
 				status = "disabled";
 			};
 

@@ -1,77 +1,8 @@
 ifeq ($(CONFIG_OF),y)
 
 # Keep at91 dtb files sorted alphabetically for each SoC
-# rm9200
-dtb-$(CONFIG_ARCH_AT91) += at91rm9200ek.dtb
-dtb-$(CONFIG_ARCH_AT91) += mpa1600.dtb
-# sam9260
-dtb-$(CONFIG_ARCH_AT91) += animeo_ip.dtb
-dtb-$(CONFIG_ARCH_AT91) += aks-cdu.dtb
-dtb-$(CONFIG_ARCH_AT91) += ethernut5.dtb
-dtb-$(CONFIG_ARCH_AT91) += evk-pro3.dtb
-dtb-$(CONFIG_ARCH_AT91) += tny_a9260.dtb
-dtb-$(CONFIG_ARCH_AT91) += usb_a9260.dtb
-# sam9263
-dtb-$(CONFIG_ARCH_AT91) += at91sam9263ek.dtb
-dtb-$(CONFIG_ARCH_AT91) += tny_a9263.dtb
-dtb-$(CONFIG_ARCH_AT91) += usb_a9263.dtb
-# sam9g20
-dtb-$(CONFIG_ARCH_AT91) += at91-foxg20.dtb
-dtb-$(CONFIG_ARCH_AT91) += at91sam9g20ek.dtb
-dtb-$(CONFIG_ARCH_AT91) += at91sam9g20ek_2mmc.dtb
-dtb-$(CONFIG_ARCH_AT91) += kizbox.dtb
-dtb-$(CONFIG_ARCH_AT91) += tny_a9g20.dtb
-dtb-$(CONFIG_ARCH_AT91) += usb_a9g20.dtb
-dtb-$(CONFIG_ARCH_AT91) += usb_a9g20_lpw.dtb
-# sam9g45
-dtb-$(CONFIG_ARCH_AT91) += at91sam9m10g45ek.dtb
-dtb-$(CONFIG_ARCH_AT91) += pm9g45.dtb
-# sam9n12
-dtb-$(CONFIG_ARCH_AT91) += at91sam9n12ek.dtb
-# sam9x5
-dtb-$(CONFIG_ARCH_AT91) += at91-ariag25.dtb
-dtb-$(CONFIG_ARCH_AT91) += at91sam9g15ek.dtb
-dtb-$(CONFIG_ARCH_AT91) += at91sam9g25ek.dtb
-dtb-$(CONFIG_ARCH_AT91) += at91sam9g35ek.dtb
-dtb-$(CONFIG_ARCH_AT91) += at91sam9x25ek.dtb
-dtb-$(CONFIG_ARCH_AT91) += at91sam9x35ek.dtb
 # sama5d3
-dtb-$(CONFIG_ARCH_AT91)	+= at91-sama5d3_xplained.dtb
-dtb-$(CONFIG_ARCH_AT91)	+= at91-sama5d3_xplained_pda4.dtb
-dtb-$(CONFIG_ARCH_AT91)	+= at91-sama5d3_xplained_pda7.dtb
-dtb-$(CONFIG_ARCH_AT91)	+= sama5d31ek.dtb
-dtb-$(CONFIG_ARCH_AT91)	+= sama5d31ek_pda4.dtb
-dtb-$(CONFIG_ARCH_AT91)	+= sama5d31ek_pda7.dtb
-dtb-$(CONFIG_ARCH_AT91)	+= sama5d31ek_revc.dtb
-dtb-$(CONFIG_ARCH_AT91)	+= sama5d31ek_revc_pda4.dtb
-dtb-$(CONFIG_ARCH_AT91)	+= sama5d31ek_revc_pda7.dtb
-dtb-$(CONFIG_ARCH_AT91)	+= sama5d33ek.dtb
-dtb-$(CONFIG_ARCH_AT91)	+= sama5d33ek_pda4.dtb
-dtb-$(CONFIG_ARCH_AT91)	+= sama5d33ek_pda7.dtb
-dtb-$(CONFIG_ARCH_AT91)	+= sama5d33ek_revc.dtb
-dtb-$(CONFIG_ARCH_AT91)	+= sama5d33ek_revc_pda4.dtb
-dtb-$(CONFIG_ARCH_AT91)	+= sama5d33ek_revc_pda7.dtb
-dtb-$(CONFIG_ARCH_AT91)	+= sama5d34ek.dtb
-dtb-$(CONFIG_ARCH_AT91)	+= sama5d34ek_pda4.dtb
-dtb-$(CONFIG_ARCH_AT91)	+= sama5d34ek_pda7.dtb
-dtb-$(CONFIG_ARCH_AT91)	+= sama5d34ek_revc.dtb
-dtb-$(CONFIG_ARCH_AT91)	+= sama5d34ek_revc_pda4.dtb
-dtb-$(CONFIG_ARCH_AT91)	+= sama5d34ek_revc_pda7.dtb
-dtb-$(CONFIG_ARCH_AT91)	+= sama5d35ek.dtb
-dtb-$(CONFIG_ARCH_AT91)	+= sama5d35ek_revc.dtb
 dtb-$(CONFIG_ARCH_AT91)	+= sama5d36ek.dtb
-dtb-$(CONFIG_ARCH_AT91)	+= sama5d36ek_hdmi.dtb
-dtb-$(CONFIG_ARCH_AT91)	+= sama5d36ek_pda4.dtb
-dtb-$(CONFIG_ARCH_AT91)	+= sama5d36ek_pda7.dtb
-dtb-$(CONFIG_ARCH_AT91)	+= sama5d36ek_revc.dtb
-dtb-$(CONFIG_ARCH_AT91)	+= sama5d36ek_revc_pda4.dtb
-dtb-$(CONFIG_ARCH_AT91)	+= sama5d36ek_revc_pda7.dtb
-# sama5d4
-dtb-$(CONFIG_ARCH_AT91)	+= at91-sama5d4_xplained.dtb
-dtb-$(CONFIG_ARCH_AT91)	+= at91-sama5d4_xplained_pda4.dtb
-dtb-$(CONFIG_ARCH_AT91)	+= at91-sama5d4_xplained_hdmi.dtb
-dtb-$(CONFIG_ARCH_AT91)	+= sama5d4ek.dtb
-dtb-$(CONFIG_ARCH_AT91)	+= sama5d4ek_hdmi.dtb
 
 dtb-$(CONFIG_ARCH_BCM2835) += bcm2835-rpi-b.dtb
 dtb-$(CONFIG_ARCH_BCM) += bcm11351-brt.dtb
