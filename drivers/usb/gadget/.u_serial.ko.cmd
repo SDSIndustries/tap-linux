@@ -1,1 +1,0 @@
-cmd_drivers/usb/gadget/u_serial.ko := /usr/bin/arm-linux-gnueabi-ld -EL -r  -T /home/scott/controller/tap-linux/scripts/module-common.lds --build-id  -o drivers/usb/gadget/u_serial.ko drivers/usb/gadget/u_serial.o drivers/usb/gadget/u_serial.mod.o

@@ -1,5 +1,0 @@
-mpa1600.o: arch/arm/boot/dts/mpa1600.dts \
- arch/arm/boot/dts/at91rm9200.dtsi arch/arm/boot/dts/skeleton.dtsi \
- /home/scott/controller/tap-linux/arch/arm/boot/dts/include/dt-bindings/pinctrl/at91.h \
- /home/scott/controller/tap-linux/arch/arm/boot/dts/include/dt-bindings/interrupt-controller/irq.h \
- /home/scott/controller/tap-linux/arch/arm/boot/dts/include/dt-bindings/gpio/gpio.h

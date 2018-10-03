@@ -1,7 +1,0 @@
-at91-ariag25.o: arch/arm/boot/dts/at91-ariag25.dts \
- arch/arm/boot/dts/at91sam9g25.dtsi arch/arm/boot/dts/at91sam9x5.dtsi \
- arch/arm/boot/dts/skeleton.dtsi \
- /home/scott/controller/tap-linux/arch/arm/boot/dts/include/dt-bindings/dma/at91.h \
- /home/scott/controller/tap-linux/arch/arm/boot/dts/include/dt-bindings/pinctrl/at91.h \
- /home/scott/controller/tap-linux/arch/arm/boot/dts/include/dt-bindings/interrupt-controller/irq.h \
- /home/scott/controller/tap-linux/arch/arm/boot/dts/include/dt-bindings/gpio/gpio.h

@@ -1,1 +1,0 @@
-arch/arm/boot/dts/sama5d35ek_revc.dtb: arch/arm/boot/dts/.sama5d35ek_revc.dtb.dts.tmp arch/arm/boot/dts/sama5d3xmb_revc_isi.dtsi

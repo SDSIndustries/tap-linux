@@ -1,8 +1,0 @@
-sama5d33ek_revc_pda4.o: arch/arm/boot/dts/sama5d33ek_revc_pda4.dts \
- arch/arm/boot/dts/sama5d3xmb_revc.dtsi arch/arm/boot/dts/sama5d3xcm.dtsi \
- arch/arm/boot/dts/sama5d3.dtsi arch/arm/boot/dts/skeleton.dtsi \
- /home/scott/controller/tap-linux/arch/arm/boot/dts/include/dt-bindings/dma/at91.h \
- /home/scott/controller/tap-linux/arch/arm/boot/dts/include/dt-bindings/pinctrl/at91.h \
- /home/scott/controller/tap-linux/arch/arm/boot/dts/include/dt-bindings/interrupt-controller/irq.h \
- /home/scott/controller/tap-linux/arch/arm/boot/dts/include/dt-bindings/gpio/gpio.h \
- arch/arm/boot/dts/sama5d3xdm_pda4.dtsi

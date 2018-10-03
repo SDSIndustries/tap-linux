@@ -1,7 +1,0 @@
-sama5d4ek_hdmi.o: arch/arm/boot/dts/sama5d4ek_hdmi.dts \
- arch/arm/boot/dts/sama5d4.dtsi arch/arm/boot/dts/skeleton.dtsi \
- /home/scott/controller/tap-linux/arch/arm/boot/dts/include/dt-bindings/dma/at91.h \
- /home/scott/controller/tap-linux/arch/arm/boot/dts/include/dt-bindings/pinctrl/at91.h \
- /home/scott/controller/tap-linux/arch/arm/boot/dts/include/dt-bindings/interrupt-controller/irq.h \
- /home/scott/controller/tap-linux/arch/arm/boot/dts/include/dt-bindings/gpio/gpio.h \
- arch/arm/boot/dts/sama5d4ek_pin_sleep_state.dtsi

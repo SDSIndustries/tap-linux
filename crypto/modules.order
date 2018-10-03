@@ -1,3 +1,0 @@
-kernel/crypto/af_alg.ko
-kernel/crypto/algif_hash.ko
-kernel/crypto/algif_skcipher.ko

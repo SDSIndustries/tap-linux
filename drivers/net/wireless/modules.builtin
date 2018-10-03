@@ -1,4 +1,0 @@
-kernel/drivers/net/wireless/hostap/hostap.ko
-kernel/drivers/net/wireless/rtl818x/rtl8187/rtl8187.ko
-kernel/drivers/net/wireless/rtl8192/8192eu.ko
-kernel/drivers/net/wireless/rtlwifi/rtlwifi.ko

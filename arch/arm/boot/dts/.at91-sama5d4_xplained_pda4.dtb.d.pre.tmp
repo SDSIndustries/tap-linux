@@ -1,8 +1,0 @@
-at91-sama5d4_xplained_pda4.o: \
- arch/arm/boot/dts/at91-sama5d4_xplained_pda4.dts \
- arch/arm/boot/dts/sama5d4.dtsi arch/arm/boot/dts/skeleton.dtsi \
- /home/scott/controller/tap-linux/arch/arm/boot/dts/include/dt-bindings/dma/at91.h \
- /home/scott/controller/tap-linux/arch/arm/boot/dts/include/dt-bindings/pinctrl/at91.h \
- /home/scott/controller/tap-linux/arch/arm/boot/dts/include/dt-bindings/interrupt-controller/irq.h \
- /home/scott/controller/tap-linux/arch/arm/boot/dts/include/dt-bindings/gpio/gpio.h \
- arch/arm/boot/dts/at91-sama5d4_xplained_dm_pda4.dtsi
