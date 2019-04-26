@@ -46,7 +46,7 @@
 					spi-cpol;
 					spi-cpha;
 					interrupt-parent = <&pioD>;
-					interrupts = <10 IRQ_TYPE_EDGE_FALLING>;
+					interrupts = <8 IRQ_TYPE_EDGE_FALLING>;
                                         spi-max-frequency = <1000000>;
                                 };
 			};

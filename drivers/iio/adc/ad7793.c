@@ -834,9 +834,11 @@ static int ad7793_probe(struct spi_device *spi)
 
 	st = iio_priv(indio_dev);
 
+	printk("\nad_sd_init");
 	ad_sd_init(&st->sd, indio_dev, spi, &ad7793_sigma_delta_info);
 
 	if (pdata->refsel != AD7793_REFSEL_INTERNAL) {
+		printk("\nad_sd refsel");
 		st->reg = devm_regulator_get(&spi->dev, "refin");
 		if (IS_ERR(st->reg))
 			return PTR_ERR(st->reg);
@@ -847,6 +849,7 @@ static int ad7793_probe(struct spi_device *spi)
 
 		vref_mv = regulator_get_voltage(st->reg);
 		if (vref_mv < 0) {
+			printk("\nvref_mv: %d", vref_mv);
 			ret = vref_mv;
 			goto error_disable_reg;
 		}

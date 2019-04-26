@@ -307,13 +307,13 @@ int ad_sigma_delta_single_conversion(struct iio_dev *indio_dev,
 	unsigned int data_reg;
 	int ret = 0;
 
-	printk("\nSingle Conversion");
+//	printk("\nSingle Conversion");
 	if (iio_buffer_enabled(indio_dev))
 		return -EBUSY;
 
 	mutex_lock(&indio_dev->mlock);
 	ad_sigma_delta_prepare_channel(sigma_delta, 0, chan);
-	printk("\nSet Channel");
+//	printk("\nSet Channel");
 	ad_sigma_delta_set_channel(sigma_delta, 0, chan->address);
 
 	ad_sigma_delta_set_active_slots(sigma_delta, 1);
@@ -323,15 +323,15 @@ int ad_sigma_delta_single_conversion(struct iio_dev *indio_dev,
 	sigma_delta->keep_cs_asserted = true;
 	reinit_completion(&sigma_delta->completion);
 
-	printk("\nSet Mode");
+//	printk("\nSet Mode");
 	ad_sigma_delta_set_mode(sigma_delta, AD_SD_MODE_SINGLE);
 
 	sigma_delta->irq_dis = false;
-	printk("\nEnable IRQ");
+//	printk("\nEnable IRQ");
 	enable_irq(sigma_delta->spi->irq);
 	ret = wait_for_completion_interruptible_timeout(
 			&sigma_delta->completion, 5000*HZ);
-	printk("\nWait for completion done with: %d", ret);
+//	printk("\nWait for completion done with: %d", ret);
 
 	if (ret == 0)
 		ret = -EIO;
@@ -339,7 +339,7 @@ int ad_sigma_delta_single_conversion(struct iio_dev *indio_dev,
 		goto out;
 
 	if (sigma_delta->info->data_reg != 0){
-		printk("\nWrong Reg");
+//		printk("\nWrong Reg");
 		data_reg = sigma_delta->info->data_reg;
 	}
 	else
@@ -365,11 +365,11 @@ out:
 	if (ret)
 		return ret;
 
-	printk("\nSet Sample Value");
+//	printk("\nSet Sample Value");
 	sample = raw_sample >> chan->scan_type.shift;
 	sample &= (1 << chan->scan_type.realbits) - 1;
 	*val = sample;
-	printk("\nSample Value: %d", *val);
+//	printk("\nSample Value: %d", *val);
 	ret = ad_sigma_delta_postprocess_sample(sigma_delta, raw_sample);
 	if (ret)
 		return ret;
@@ -490,7 +490,7 @@ static irqreturn_t ad_sd_trigger_handler(int irq, void *p)
 	struct ad_sigma_delta *sigma_delta = iio_device_get_drvdata(indio_dev);
 	int ret;
 
-	printk("ad_sd_trigger_handler");
+//	printk("ad_sd_trigger_handler");
 	sigma_delta->current_slot++;
 
 	ret = spi_sync_locked(sigma_delta->spi, &sigma_delta->spi_msg);
@@ -529,7 +529,7 @@ static irqreturn_t ad_sd_data_rdy_trig_poll(int irq, void *private)
 {
 	struct ad_sigma_delta *sigma_delta = private;
 	
-	printk("\nad_sd_data_rdy from irq %d", irq);
+//	printk("\nad_sd_data_rdy from irq %d", irq);
 	complete(&sigma_delta->completion);
 	disable_irq_nosync(irq);
 	sigma_delta->irq_dis = true;

@@ -331,7 +331,7 @@ int ad_sigma_delta_single_conversion(struct iio_dev *indio_dev,
 	enable_irq(sigma_delta->spi->irq);
 	ret = wait_for_completion_interruptible_timeout(
 			&sigma_delta->completion, 5000*HZ);
-//	printk("\nWait for completion done with: %d", ret);
+	printk("\nWait for completion done with: %d", ret);
 
 	if (ret == 0)
 		ret = -EIO;
@@ -345,7 +345,7 @@ int ad_sigma_delta_single_conversion(struct iio_dev *indio_dev,
 	else
 		data_reg = AD_SD_REG_DATA;
 
-	usleep_range(100000, 140000);
+//Test new interrupt	usleep_range(121000, 140000);
 	ret = ad_sd_read_reg(sigma_delta, data_reg,
 		DIV_ROUND_UP(chan->scan_type.realbits + chan->scan_type.shift, 8),
 		&raw_sample);
@@ -490,7 +490,7 @@ static irqreturn_t ad_sd_trigger_handler(int irq, void *p)
 	struct ad_sigma_delta *sigma_delta = iio_device_get_drvdata(indio_dev);
 	int ret;
 
-//	printk("ad_sd_trigger_handler");
+	printk("ad_sd_trigger_handler");
 	sigma_delta->current_slot++;
 
 	ret = spi_sync_locked(sigma_delta->spi, &sigma_delta->spi_msg);
@@ -529,7 +529,7 @@ static irqreturn_t ad_sd_data_rdy_trig_poll(int irq, void *private)
 {
 	struct ad_sigma_delta *sigma_delta = private;
 	
-//	printk("\nad_sd_data_rdy from irq %d", irq);
+	printk("\nad_sd_data_rdy from irq %d", irq);
 	complete(&sigma_delta->completion);
 	disable_irq_nosync(irq);
 	sigma_delta->irq_dis = true;
