@@ -17,9 +17,9 @@ deps_scripts/kconfig/zconf.tab.o := \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap-16.h \
   /usr/include/xlocale.h \
-  /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdarg.h \
+  /usr/lib/gcc/x86_64-linux-gnu/4.9/include/stdarg.h \
   /usr/include/stdio.h \
-  /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h \
+  /usr/lib/gcc/x86_64-linux-gnu/4.9/include/stddef.h \
   /usr/include/libio.h \
   /usr/include/_G_config.h \
   /usr/include/wchar.h \
@@ -47,7 +47,7 @@ deps_scripts/kconfig/zconf.tab.o := \
   /usr/include/x86_64-linux-gnu/bits/string.h \
   /usr/include/x86_64-linux-gnu/bits/string2.h \
   /usr/include/x86_64-linux-gnu/bits/string3.h \
-  /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdbool.h \
+  /usr/lib/gcc/x86_64-linux-gnu/4.9/include/stdbool.h \
   scripts/kconfig/lkc.h \
     $(wildcard include/config/.h) \
     $(wildcard include/config/prefix.h) \
@@ -67,8 +67,8 @@ deps_scripts/kconfig/zconf.tab.o := \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
   /usr/include/asm-generic/errno.h \
   /usr/include/asm-generic/errno-base.h \
-  /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/limits.h \
-  /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/syslimits.h \
+  /usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed/limits.h \
+  /usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed/syslimits.h \
   /usr/include/limits.h \
   /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
   /usr/include/x86_64-linux-gnu/bits/local_lim.h \
@@ -97,7 +97,6 @@ deps_scripts/kconfig/zconf.tab.o := \
   scripts/kconfig/expr.c \
   scripts/kconfig/symbol.c \
   /usr/include/regex.h \
-  /usr/include/x86_64-linux-gnu/gnu/option-groups.h \
   /usr/include/x86_64-linux-gnu/sys/utsname.h \
   /usr/include/x86_64-linux-gnu/bits/utsname.h \
   scripts/kconfig/menu.c \

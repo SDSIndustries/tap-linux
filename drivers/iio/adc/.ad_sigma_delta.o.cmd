@@ -571,6 +571,8 @@ deps_drivers/iio/adc/ad_sigma_delta.o := \
     $(wildcard include/config/have/mod/arch/specific.h) \
     $(wildcard include/config/modules/use/elf/rel.h) \
     $(wildcard include/config/modules/use/elf/rela.h) \
+  include/linux/delay.h \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/delay.h \
   include/linux/iio/iio.h \
     $(wildcard include/config/debug/fs.h) \
   include/linux/cdev.h \

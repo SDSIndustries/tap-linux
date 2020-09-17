@@ -10,8 +10,9 @@
 	.eabi_attribute 34, 1	@ Tag_CPU_unaligned_access
 	.eabi_attribute 18, 4	@ Tag_ABI_PCS_wchar_t
 	.file	"asm-offsets.c"
-@ GNU C (Ubuntu/Linaro 4.7.3-12ubuntu1) version 4.7.3 (arm-linux-gnueabi)
-@	compiled by GNU C version 4.8.2, GMP version 5.1.3, MPFR version 3.1.2-p3, MPC version 1.0.1
+@ GNU C (Ubuntu/Linaro 4.7.4-3ubuntu12) version 4.7.4 (arm-linux-gnueabi)
+@	compiled by GNU C version 4.7.4, GMP version 6.1.0, MPFR version 3.1.3-p5, MPC version 1.0.3
+@ warning: MPFR header version 3.1.3-p5 differs from library version 3.1.4.
 @ GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
 @ options passed:  -nostdinc
 @ -I /home/scott/controller/tap-linux/arch/arm/include
@@ -337,5 +338,5 @@ main:
 	bx	lr	@
 	.fnend
 	.size	main, .-main
-	.ident	"GCC: (Ubuntu/Linaro 4.7.3-12ubuntu1) 4.7.3"
+	.ident	"GCC: (Ubuntu/Linaro 4.7.4-3ubuntu12) 4.7.4"
 	.section	.note.GNU-stack,"",%progbits

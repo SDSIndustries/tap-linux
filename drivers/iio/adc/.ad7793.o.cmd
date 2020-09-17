@@ -3,6 +3,7 @@ cmd_drivers/iio/adc/ad7793.o := /usr/bin/arm-linux-gnueabi-gcc -Wp,-MD,drivers/i
 source_drivers/iio/adc/ad7793.o := drivers/iio/adc/ad7793.c
 
 deps_drivers/iio/adc/ad7793.o := \
+    $(wildcard include/config/of.h) \
   include/linux/interrupt.h \
     $(wildcard include/config/generic/hardirqs.h) \
     $(wildcard include/config/lockdep.h) \
@@ -575,6 +576,16 @@ deps_drivers/iio/adc/ad7793.o := \
     $(wildcard include/config/have/mod/arch/specific.h) \
     $(wildcard include/config/modules/use/elf/rel.h) \
     $(wildcard include/config/modules/use/elf/rela.h) \
+  include/linux/of.h \
+    $(wildcard include/config/sparc.h) \
+    $(wildcard include/config/of/dynamic.h) \
+    $(wildcard include/config/attach/node.h) \
+    $(wildcard include/config/detach/node.h) \
+    $(wildcard include/config/add/property.h) \
+    $(wildcard include/config/remove/property.h) \
+    $(wildcard include/config/update/property.h) \
+    $(wildcard include/config/proc/devicetree.h) \
+  /home/scott/controller/tap-linux/arch/arm/include/asm/prom.h \
   include/linux/iio/iio.h \
     $(wildcard include/config/debug/fs.h) \
   include/linux/cdev.h \

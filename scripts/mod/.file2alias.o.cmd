@@ -11,13 +11,13 @@ deps_scripts/mod/file2alias.o := \
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
-  /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h \
+  /usr/lib/gcc/x86_64-linux-gnu/4.9/include/stddef.h \
   /usr/include/x86_64-linux-gnu/bits/types.h \
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/libio.h \
   /usr/include/_G_config.h \
   /usr/include/wchar.h \
-  /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdarg.h \
+  /usr/lib/gcc/x86_64-linux-gnu/4.9/include/stdarg.h \
   /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
   /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
   /usr/include/x86_64-linux-gnu/bits/stdio.h \
@@ -63,14 +63,14 @@ deps_scripts/mod/file2alias.o := \
   /usr/include/getopt.h \
   /usr/include/x86_64-linux-gnu/bits/unistd.h \
   /usr/include/elf.h \
-  /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdint.h \
+  /usr/lib/gcc/x86_64-linux-gnu/4.9/include/stdint.h \
   /usr/include/stdint.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
   /usr/include/x86_64-linux-gnu/bits/auxv.h \
   scripts/mod/elfconfig.h \
   scripts/mod/devicetable-offsets.h \
   /usr/include/ctype.h \
-  /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdbool.h \
+  /usr/lib/gcc/x86_64-linux-gnu/4.9/include/stdbool.h \
   scripts/mod/../../include/linux/mod_devicetable.h \
 
 scripts/mod/file2alias.o: $(deps_scripts/mod/file2alias.o)

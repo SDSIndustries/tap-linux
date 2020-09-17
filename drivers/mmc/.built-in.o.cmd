@@ -1,1 +1,1 @@
-cmd_drivers/mmc/built-in.o :=  /usr/bin/arm-linux-gnueabi-ld -EL    -r -o drivers/mmc/built-in.o drivers/mmc/core/built-in.o drivers/mmc/card/built-in.o drivers/mmc/host/built-in.o 
+cmd_drivers/mmc/built-in.o :=  rm -f drivers/mmc/built-in.o; /usr/bin/arm-linux-gnueabi-ar rcsD drivers/mmc/built-in.o

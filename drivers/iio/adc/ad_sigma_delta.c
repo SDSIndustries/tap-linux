@@ -200,6 +200,7 @@ int ad_sd_reset(struct ad_sigma_delta *sigma_delta,
 	unsigned int size;
 	int ret;
 
+	//printk("\nAD Reset");
 	size = DIV_ROUND_UP(reset_length, 8);
 	buf = kcalloc(size, sizeof(*buf), GFP_KERNEL);
 	if (!buf)
@@ -217,7 +218,7 @@ static int ad_sd_calibrate(struct ad_sigma_delta *sigma_delta,
 	unsigned int mode, unsigned int channel)
 {
 	int ret;
-	printk("\nCalibrate");
+	//printk("\nCalibrate Channel: %d", channel);
 
 	ret = ad_sigma_delta_set_channel(sigma_delta, 0, channel);
 	if (ret)
@@ -321,17 +322,17 @@ int ad_sigma_delta_single_conversion(struct iio_dev *indio_dev,
 	spi_bus_lock(sigma_delta->spi->master);
 	sigma_delta->bus_locked = true;
 	sigma_delta->keep_cs_asserted = true;
-	reinit_completion(&sigma_delta->completion);
+//	reinit_completion(&sigma_delta->completion);
 
 //	printk("\nSet Mode");
 	ad_sigma_delta_set_mode(sigma_delta, AD_SD_MODE_SINGLE);
-
+	reinit_completion(&sigma_delta->completion);
 	sigma_delta->irq_dis = false;
 //	printk("\nEnable IRQ");
 	enable_irq(sigma_delta->spi->irq);
 	ret = wait_for_completion_interruptible_timeout(
 			&sigma_delta->completion, 5000*HZ);
-//	printk("\nWait for completion done with: %d", ret);
+	//printk("\nWait for completion done with: %d", ret);
 
 	if (ret == 0)
 		ret = -EIO;
@@ -345,7 +346,7 @@ int ad_sigma_delta_single_conversion(struct iio_dev *indio_dev,
 	else
 		data_reg = AD_SD_REG_DATA;
 
-	usleep_range(100000, 140000);
+//	usleep_range(100000, 140000);
 	ret = ad_sd_read_reg(sigma_delta, data_reg,
 		DIV_ROUND_UP(chan->scan_type.realbits + chan->scan_type.shift, 8),
 		&raw_sample);
@@ -369,7 +370,7 @@ out:
 	sample = raw_sample >> chan->scan_type.shift;
 	sample &= (1 << chan->scan_type.realbits) - 1;
 	*val = sample;
-//	printk("\nSample Value: %d", *val);
+	//printk("\nSample Value: %d", *val);
 	ret = ad_sigma_delta_postprocess_sample(sigma_delta, raw_sample);
 	if (ret)
 		return ret;
@@ -490,7 +491,7 @@ static irqreturn_t ad_sd_trigger_handler(int irq, void *p)
 	struct ad_sigma_delta *sigma_delta = iio_device_get_drvdata(indio_dev);
 	int ret;
 
-//	printk("ad_sd_trigger_handler");
+	//printk("\nad_sd_trigger_handler");
 	sigma_delta->current_slot++;
 
 	ret = spi_sync_locked(sigma_delta->spi, &sigma_delta->spi_msg);
@@ -529,7 +530,7 @@ static irqreturn_t ad_sd_data_rdy_trig_poll(int irq, void *private)
 {
 	struct ad_sigma_delta *sigma_delta = private;
 	
-//	printk("\nad_sd_data_rdy from irq %d", irq);
+	//printk("\nad_sd_data_rdy from irq %d", irq);
 	complete(&sigma_delta->completion);
 	disable_irq_nosync(irq);
 	sigma_delta->irq_dis = true;
@@ -550,6 +551,7 @@ int ad_sd_validate_trigger(struct iio_dev *indio_dev, struct iio_trigger *trig)
 {
 	struct ad_sigma_delta *sigma_delta = iio_device_get_drvdata(indio_dev);
 
+	//printk("\nad_sd_validate_trigger");
 	if (sigma_delta->trig != trig)
 		return -EINVAL;
 
@@ -565,6 +567,8 @@ static int ad_sd_probe_trigger(struct iio_dev *indio_dev)
 {
 	struct ad_sigma_delta *sigma_delta = iio_device_get_drvdata(indio_dev);
 	int ret;
+
+	//printk("\nad_sd_probe_trigger");
 
 	sigma_delta->trig = iio_trigger_alloc("%s-dev%d", indio_dev->name,
 						indio_dev->id);
